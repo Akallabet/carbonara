@@ -1,0 +1,48 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  env: {
+    browser: true,
+    es6: true,
+    'jest/globals': true,
+  },
+  globals: {
+    exports: true,
+    module: true,
+    require: true,
+    graphql: false,
+    process: false,
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2019,
+    ecmaFeatures: {
+      experimentalObjectRestSpread: true,
+      jsx: true,
+    },
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'plugin:react/recommended',
+    'plugin:jest/recommended',
+    'eslint-config-prettier',
+  ],
+  rules: {
+    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.tsx']}],
+    'import/prefer-default-export': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'react/forbid-prop-types': 'off',
+    'import/no-extraneous-dependencies': ['error', {devDependencies: true}],
+    'no-param-reassign': 'off',
+    'no-prototype-builtins': 'off',
+    'max-classes-per-file': 'off',
+    'react/jsx-curly-newline': 'off',
+  },
+}

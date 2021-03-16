@@ -1,0 +1,37 @@
+name: Test, Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+
+      - name: Cache npm dependencies
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.cache-node_modules.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Unit and integration tests
+        run: npm test:ci
+
+      - name: Build production
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public
+          CLEAN: true
