@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://carbonara/./src/pages/index.tsx"],"names":[],"mappings":"gIAMA,UAJkB,WAChB,OAAO","file":"component---src-pages-index-tsx-f9412e2ecb56b2d73ed2.js","sourcesContent":["import React from 'react'\n\nconst IndexPage = (): JSX.Element => {\n  return <p>Test</p>\n}\n\nexport default IndexPage\n"],"sourceRoot":""}

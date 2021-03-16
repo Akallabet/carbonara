@@ -1,0 +1,2 @@
+(self.webpackChunkcarbonara=self.webpackChunkcarbonara||[]).push([[218],{6040:function(e,n,t){"use strict";t.r(n);var a=t(7294);n.default=function(){return a.createElement("main",null,a.createElement("title",null,"Not found"),a.createElement("h1",null,"Page not found"))}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-6f4511efbc617ae38b94.js.map
