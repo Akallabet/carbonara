@@ -2,16 +2,14 @@ import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
 import {Header} from '../common/layout'
 
-// interface IndexPageProps {}
-
-const IndexPage: FunctionComponent = () => {
+const SignupPage: FunctionComponent = () => {
   return <Header />
 }
 
-export default IndexPage
+export default SignupPage
 
 export const query = graphql`
-  query HomePage {
+  query SignupPage {
     header: restApiContentHeader {
       ...Header
     }

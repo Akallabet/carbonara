@@ -19,6 +19,12 @@
     "target": "esnext",
     "types": ["jest"]
   },
-  "exclude": ["node_modules", ".next", "out", "next.config.js"],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "next.config.js",
+    "src/test-utils/*.js"
+  ],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.png"]
 }
