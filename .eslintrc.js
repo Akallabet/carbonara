@@ -34,6 +34,7 @@ module.exports = {
     'eslint-config-prettier',
   ],
   rules: {
+    'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx', '.tsx']}],
     'import/prefer-default-export': 'off',
     'react/jsx-props-no-spreading': 'off',

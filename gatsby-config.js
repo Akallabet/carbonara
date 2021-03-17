@@ -1,3 +1,5 @@
+require('./src/mocks')
+
 module.exports = {
   siteMetadata: {
     title: 'Carbonara',
@@ -27,6 +29,12 @@ module.exports = {
         path: './src/pages/',
       },
       __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-source-rest-api',
+      options: {
+        endpoints: ['https://test.com/content/header'],
+      },
     },
   ],
 }
