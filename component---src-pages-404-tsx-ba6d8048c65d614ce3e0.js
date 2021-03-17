@@ -1,0 +1,2 @@
+(self.webpackChunkcarbonara=self.webpackChunkcarbonara||[]).push([[218],{6040:function(n,a,e){"use strict";e.r(a);e(7294);var r=e(5893);a.default=function(){return(0,r.jsxs)("main",{children:[(0,r.jsx)("title",{children:"Not found"}),(0,r.jsx)("h1",{children:"Page not found"})]})}}}]);
+//# sourceMappingURL=component---src-pages-404-tsx-ba6d8048c65d614ce3e0.js.map

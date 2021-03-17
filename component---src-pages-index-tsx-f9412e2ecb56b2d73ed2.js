@@ -1,2 +1,0 @@
-(self.webpackChunkcarbonara=self.webpackChunkcarbonara||[]).push([[691],{2494:function(e,a,n){"use strict";n.r(a);var r=n(7294);a.default=function(){return r.createElement("p",null,"Test")}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-f9412e2ecb56b2d73ed2.js.map
