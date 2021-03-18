@@ -1,56 +1,27 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
-import {StaticImage} from 'gatsby-plugin-image'
-import {Box, Button, Hidden} from '@material-ui/core'
-import {withContent} from '../../content/content-provider'
 
-interface HeaderProps {
-  content: {
-    header: {
-      logo: {
-        altText: string
-      }
-      nav: {
-        links: Array<{label: string; url: string}>
-        buttons: {
-          diners: string
-          signUp: string
-        }
-      }
-    }
-  }
-}
+import {Hidden} from '@material-ui/core'
+
+import {withContent} from '../../content/content-provider'
+import DesktopHeader from './desktop-header'
+import MobileHeader from './mobile-header'
+import {HeaderProps} from './types'
 
 const Header: FunctionComponent<HeaderProps> = ({
-  content: {
-    header: {
-      logo: {altText},
-      nav: {
-        links,
-        buttons: {diners, signUp},
-      },
-    },
-  },
-}: HeaderProps) => (
-  <Hidden implementation="css" xsDown>
-    <Box component="header" display="flex" p={1}>
-      <StaticImage src="../../assets/images/logo.png" alt={altText} />
-      <Box component="nav" flexGrow="2" textAlign="right" data-testid="nav">
-        {links.map(({label, url}) => (
-          <a key={label} href={url}>
-            {label}
-          </a>
-        ))}
-        <Button color="secondary" variant="outlined">
-          {diners}
-        </Button>
-        <Button color="primary" variant="contained" href="/signup">
-          {signUp}
-        </Button>
-      </Box>
-    </Box>
-  </Hidden>
-)
+  content: {header},
+}: HeaderProps) => {
+  return (
+    <header>
+      <Hidden implementation="css" smDown>
+        <DesktopHeader {...header} />
+      </Hidden>
+      <Hidden implementation="css" mdUp>
+        <MobileHeader {...header} />
+      </Hidden>
+    </header>
+  )
+}
 
 export default withContent(Header)
 

@@ -26,5 +26,12 @@
     "next.config.js",
     "src/test-utils/*.js"
   ],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.png"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.js",
+    "**/*.png",
+    "**/*.svg"
+  ]
 }
