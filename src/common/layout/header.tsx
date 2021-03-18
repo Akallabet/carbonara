@@ -32,9 +32,9 @@ const Header: FunctionComponent<HeaderProps> = ({
     },
   },
 }: HeaderProps) => (
-  <Hidden implementation="css" smDown>
+  <Hidden implementation="css" xsDown>
     <Box component="header" display="flex" p={1}>
-      <StaticImage src="../assets/images/logo.png" alt={altText} />
+      <StaticImage src="../../assets/images/logo.png" alt={altText} />
       <Box component="nav" flexGrow="2" textAlign="right" data-testid="nav">
         {links.map(({label, url}) => (
           <a key={label} href={url}>

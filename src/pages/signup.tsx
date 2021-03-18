@@ -1,9 +1,9 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
-import {Header} from '../common/layout'
+// import {Header} from '../common/layout'
 
 const SignupPage: FunctionComponent = () => {
-  return <Header />
+  return <>sign up</>
 }
 
 export default SignupPage

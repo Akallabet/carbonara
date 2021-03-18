@@ -4,17 +4,19 @@ import theme from './theme'
 import {CssBaseline} from '@material-ui/core'
 
 type ThemeProviderProps = {
-  children: React.ReactNode
+  element: React.ReactNode
 }
 
+import './styles.css'
+
 const ThemeProvider: FunctionComponent<ThemeProviderProps> = ({
-  children,
+  element,
 }: ThemeProviderProps) => {
   return (
-    <>
+    <MUIThemeProvider theme={theme}>
       <CssBaseline />
-      <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>
-    </>
+      {element}
+    </MUIThemeProvider>
   )
 }
 

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {graphql} from 'gatsby'
 
 // markup
 const NotFoundPage = (): JSX.Element => {
@@ -11,3 +12,11 @@ const NotFoundPage = (): JSX.Element => {
 }
 
 export default NotFoundPage
+
+export const query = graphql`
+  query NotFoundPage {
+    header: restApiContentHeader {
+      ...Header
+    }
+  }
+`

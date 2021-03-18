@@ -1,6 +1,6 @@
 import {WrapPageElementBrowserArgs} from 'gatsby'
 import ContentProvider from '../../../content/content-provider'
-import ThemeProvider from '../theme-provider'
+import {Header} from '../../layout'
 import ErrorBoundary from './error-boundary'
 
 type PageProviderArgs = WrapPageElementBrowserArgs & {
@@ -12,11 +12,12 @@ type PageProviderArgs = WrapPageElementBrowserArgs & {
 const PageProvider = (pageProps: PageProviderArgs): JSX.Element => {
   const {element, props} = pageProps
   return (
-    <ThemeProvider>
-      <ContentProvider {...props}>
-        <ErrorBoundary>{element}</ErrorBoundary>
-      </ContentProvider>
-    </ThemeProvider>
+    <ContentProvider {...props}>
+      <ErrorBoundary>
+        <Header />
+        {element}
+      </ErrorBoundary>
+    </ContentProvider>
   )
 }
 
