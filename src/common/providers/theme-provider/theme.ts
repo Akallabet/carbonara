@@ -8,6 +8,10 @@ export default createMuiTheme({
     secondary: {
       main: '#24232D',
     },
+    text: {
+      primary: '#FFFFFF',
+      secondary: '#232d36',
+    },
   },
   spacing: 5,
 })

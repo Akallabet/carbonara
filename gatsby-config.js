@@ -34,7 +34,10 @@ module.exports = {
     {
       resolve: 'gatsby-source-rest-api',
       options: {
-        endpoints: ['https://test.com/content/header'],
+        endpoints: [
+          'https://test.com/content/header',
+          'https://test.com/content/footer',
+        ],
       },
     },
   ],

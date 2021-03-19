@@ -10,7 +10,6 @@ import {
   ListItemText,
 } from '@material-ui/core'
 
-import {withContent} from '../../content/content-provider'
 import MenuIcon from './menu-icon'
 import {HeaderContent} from './types'
 
@@ -38,7 +37,7 @@ const MobileHeader: FunctionComponent<HeaderContent> = ({
     <div data-testid="mobile">
       <Box display="flex" p={1} justifyContent="space-between">
         <StaticImage
-          src="../../assets/images/logo_mobile.png"
+          src="../../../assets/images/logo_mobile.png"
           alt={altText}
           layout="fixed"
         />
@@ -76,4 +75,4 @@ const MobileHeader: FunctionComponent<HeaderContent> = ({
   )
 }
 
-export default withContent(MobileHeader)
+export default MobileHeader

@@ -3,7 +3,7 @@ import {graphql} from 'gatsby'
 
 import {Hidden} from '@material-ui/core'
 
-import {withContent} from '../../content/content-provider'
+import {withContent} from '../../providers/content-provider'
 import DesktopHeader from './desktop-header'
 import MobileHeader from './mobile-header'
 import {HeaderProps} from './types'

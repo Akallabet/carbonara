@@ -24,7 +24,7 @@ const DesktopHeader: FunctionComponent<HeaderContent> = ({
     >
       <Box flexGrow={0} flexShrink={0}>
         <Link to="/">
-          <StaticImage src="../../assets/images/logo.png" alt={altText} />
+          <StaticImage src="../../../assets/images/logo.png" alt={altText} />
         </Link>
       </Box>
       <Grid
