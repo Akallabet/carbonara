@@ -1,13 +1,16 @@
 import HomePage from '../pages'
 import header from '../mocks/content/header.json'
 import footer from '../mocks/content/footer.json'
+import countries from '../mocks/content/countries.json'
 
 import {renderWithProviders} from '../test-utils/render-with-providers'
 import {fireEvent, within} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 const content = {
   header,
   footer,
+  countries,
 }
 
 test('should display an Header with logo, links and buttons for Desktop', () => {
@@ -48,4 +51,31 @@ test('should display the footer', () => {
   footer.socialMedia.forEach(({type}) => {
     expect(getByLabelText(type)).toBeDefined()
   })
+})
+
+test('should display a functional dropdown with a list of countries to select', () => {
+  const {getByTestId, getAllByRole, getByRole} = renderWithProviders(
+    <HomePage />,
+    content,
+  )
+
+  const select = getByTestId('country-selector')
+  expect(select).toBeDefined()
+  const defaultCountry = getByRole('option', {
+    selected: true,
+  })
+  expect(defaultCountry.textContent).toEqual(
+    (countries.list.find(({code}) => code === countries.selected) || {}).name,
+  )
+  const options = getAllByRole('option')
+  options.forEach((option, i) => {
+    expect(option.textContent).toEqual(countries.list[i].name)
+  })
+  userEvent.selectOptions(select, [countries.list[1].code])
+
+  expect(
+    getByRole('option', {
+      selected: true,
+    }).textContent,
+  ).toEqual(countries.list[1].name)
 })

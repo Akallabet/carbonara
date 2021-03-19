@@ -14,4 +14,11 @@ export default createMuiTheme({
     },
   },
   spacing: 5,
+  overrides: {
+    MuiInputBase: {
+      input: {
+        color: '#232d36',
+      },
+    },
+  },
 })

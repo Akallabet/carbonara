@@ -14,5 +14,11 @@ export interface HeaderContent {
 export interface HeaderProps {
   content: {
     header: HeaderContent
+    countries: CountriesSelectProps
   }
+}
+
+export interface CountriesSelectProps {
+  selected: string
+  list: Array<{code: string; name: string}>
 }

@@ -1,18 +1,29 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
 
-import {Hidden} from '@material-ui/core'
+import {Box, Hidden} from '@material-ui/core'
 
 import {withContent} from '../../providers/content-provider'
 import DesktopHeader from './desktop-header'
 import MobileHeader from './mobile-header'
 import {HeaderProps} from './types'
+import CountriesSelect from './countries-select'
 
 const Header: FunctionComponent<HeaderProps> = ({
-  content: {header},
+  content: {header, countries},
 }: HeaderProps) => {
   return (
     <header>
+      <Box
+        borderColor="secondary.main"
+        border={1}
+        borderLeft={0}
+        borderTop={0}
+        borderRight={0}
+        textAlign="right"
+      >
+        <CountriesSelect {...countries} />
+      </Box>
       <Hidden implementation="css" smDown>
         <DesktopHeader {...header} />
       </Hidden>

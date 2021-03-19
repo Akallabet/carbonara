@@ -21,5 +21,14 @@ export const query = graphql`
     footer: restApiContentFooter {
       ...Footer
     }
+    countries: restApiContentCountries {
+      selected
+      list {
+        code
+        name
+        shortName
+        cities
+      }
+    }
   }
 `

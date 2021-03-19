@@ -37,6 +37,7 @@ module.exports = {
         endpoints: [
           'https://test.com/content/header',
           'https://test.com/content/footer',
+          'https://test.com/content/countries',
         ],
       },
     },
