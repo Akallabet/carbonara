@@ -18,5 +18,8 @@ export const query = graphql`
     header: restApiContentHeader {
       ...Header
     }
+    footer: restApiContentFooter {
+      ...Footer
+    }
   }
 `
