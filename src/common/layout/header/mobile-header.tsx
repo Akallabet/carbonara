@@ -1,4 +1,4 @@
-import {FunctionComponent, useState} from 'react'
+import {useState} from 'react'
 import {StaticImage} from 'gatsby-plugin-image'
 
 import {
@@ -9,8 +9,8 @@ import {
   List,
   ListItemText,
 } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
 
-import MenuIcon from './menu-icon'
 import {HeaderContent} from './types'
 
 const useMenu = (initialState = false) => {
@@ -25,13 +25,13 @@ const useMenu = (initialState = false) => {
   }
 }
 
-const MobileHeader: FunctionComponent<HeaderContent> = ({
+const MobileHeader = ({
   logo: {altText},
   nav: {
     links,
     buttons: {diners, signUp},
   },
-}: HeaderContent) => {
+}: HeaderContent): JSX.Element => {
   const {isMenuOpen, closeMenu, openMenu} = useMenu()
   return (
     <div data-testid="mobile">
@@ -41,7 +41,7 @@ const MobileHeader: FunctionComponent<HeaderContent> = ({
           alt={altText}
           layout="fixed"
         />
-        <IconButton onClick={openMenu}>
+        <IconButton onClick={openMenu} aria-label="menu">
           <MenuIcon />
         </IconButton>
       </Box>

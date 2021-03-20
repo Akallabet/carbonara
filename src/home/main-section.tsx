@@ -1,19 +1,18 @@
 import {Box, Typography} from '@material-ui/core'
-import {FunctionComponent} from 'react'
 import {GatsbyImage} from 'gatsby-plugin-image'
 
 import {withContent} from '../common/providers/content-provider'
 import CityRoll from './city-roll'
 import {MainSectionProps} from './types'
 
-const MainSection: FunctionComponent<MainSectionProps> = ({
+const MainSection = ({
   content: {
     home: {
       mainSection: {backgroundImage, text},
     },
     countries: {list},
   },
-}: MainSectionProps) => {
+}: MainSectionProps): JSX.Element => {
   return (
     <Box position="relative">
       <GatsbyImage
@@ -26,7 +25,7 @@ const MainSection: FunctionComponent<MainSectionProps> = ({
             {text}
           </Box>
           <Box component="span">
-            <CityRoll cities={list[0].cities} />
+            <CityRoll list={list} />
           </Box>
         </Typography>
       </Box>

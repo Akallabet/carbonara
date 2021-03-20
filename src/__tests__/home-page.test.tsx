@@ -1,5 +1,6 @@
 import {act, waitFor} from '@testing-library/react'
 import HomePage from '../pages'
+import userEvent from '@testing-library/user-event'
 
 import {renderWithProviders} from '../test-utils/render-with-providers'
 
@@ -21,4 +22,17 @@ test('first section should display a text with a location city that changes ever
   await waitFor(() =>
     expect(findByText(countries.attributes.list[0].cities[1])).toBeDefined(),
   )
+})
+
+test('first section should change the list of location cities based on the dropdown selection', async () => {
+  const {getByText, findByText, getByTestId} = renderWithProviders(<HomePage />)
+
+  expect(getByText(home.attributes.mainSection.text)).toBeDefined()
+  expect(getByText(countries.attributes.list[0].cities[0])).toBeDefined()
+
+  const select = getByTestId('country-selector')
+
+  userEvent.selectOptions(select, [countries.attributes.list[1].code])
+
+  expect(await findByText(countries.attributes.list[1].cities[1])).toBeDefined()
 })

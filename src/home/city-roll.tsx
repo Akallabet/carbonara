@@ -1,10 +1,17 @@
-import {FC, useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
+import {CountriesSelectProps} from '../common/layout/header/types'
 
-type CityRollProps = {cities: Array<string>}
+import withCountries from '../countries/with-countries'
 
-const CityRoll: FC<CityRollProps> = ({cities}: CityRollProps) => {
+const CityRoll = ({
+  selectedCountry,
+  list,
+}: CountriesSelectProps): JSX.Element => {
   const [cityIndex, setCityIndex] = useState(0)
 
+  const {cities} = list.find(({code}) => code === selectedCountry) || {
+    cities: [],
+  }
   useEffect(() => {
     const timeout = setTimeout(() => {
       setCityIndex(cityIndex === cities.length - 1 ? 0 : cityIndex + 1)
@@ -16,4 +23,4 @@ const CityRoll: FC<CityRollProps> = ({cities}: CityRollProps) => {
   return <>{cities[cityIndex]}</>
 }
 
-export default CityRoll
+export default withCountries(CityRoll)

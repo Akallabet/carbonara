@@ -1,3 +1,5 @@
+import {WithCountriesProps} from '../../../countries/types'
+
 export interface HeaderContent {
   logo: {
     altText: string
@@ -18,7 +20,7 @@ export interface HeaderProps {
   }
 }
 
-export interface CountriesSelectProps {
+export interface CountriesSelectProps extends WithCountriesProps {
   selected: string
   list: Array<{code: string; name: string; cities: Array<string>}>
 }

@@ -1,21 +1,22 @@
 import {Select} from '@material-ui/core'
-import React, {ChangeEvent, FunctionComponent, useState} from 'react'
+import React, {ChangeEvent} from 'react'
+import withCountries from '../../../countries/with-countries'
 import {CountriesSelectProps} from './types'
 
-const CountriesSelect: FunctionComponent<CountriesSelectProps> = ({
-  selected,
+const CountriesSelect = ({
   list,
-}: CountriesSelectProps) => {
-  const [country, setCountry] = useState(selected)
+  selectedCountry,
+  setSelectedCountry,
+}: CountriesSelectProps): JSX.Element => {
   const handleOnChange = ({
     target: {value},
   }: ChangeEvent<{name?: string | undefined; value: unknown}>) =>
-    setCountry(value as string)
+    setSelectedCountry(value as string)
 
   return (
     <Select
       native
-      value={country}
+      value={selectedCountry}
       onChange={handleOnChange}
       inputProps={{'data-testid': 'country-selector'}}
     >
@@ -28,4 +29,4 @@ const CountriesSelect: FunctionComponent<CountriesSelectProps> = ({
   )
 }
 
-export default CountriesSelect
+export default withCountries(CountriesSelect)
