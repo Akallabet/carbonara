@@ -1,12 +1,13 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
-import MainSection from '../home/main-section'
 import {Paper} from '@material-ui/core'
+import {LogosSection, MainSection} from '../home'
 
 const IndexPage: FunctionComponent = () => {
   return (
     <Paper>
       <MainSection />
+      <LogosSection />
     </Paper>
   )
 }
@@ -56,6 +57,7 @@ export const query = graphql`
       frontmatter {
         mainSection {
           text
+          trustedText
           backgroundImage {
             alt
             src {

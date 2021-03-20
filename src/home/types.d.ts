@@ -1,7 +1,8 @@
 import {IGatsbyImageData} from 'gatsby-plugin-image'
 import {CountriesSelectProps} from '../common/layout/header/types'
+import {WithCountriesProps} from '../countries/types'
 
-export interface MainSectionProps {
+export interface MainSectionProps extends WithCountriesProps {
   content: {
     home: {
       mainSection: {
@@ -14,6 +15,7 @@ export interface MainSectionProps {
           alt: string
         }
         text: string
+        trustedText: string
       }
     }
     countries: CountriesSelectProps

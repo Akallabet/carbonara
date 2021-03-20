@@ -36,3 +36,16 @@ test('first section should change the list of location cities based on the dropd
 
   expect(await findByText(countries.attributes.list[1].cities[1])).toBeDefined()
 })
+
+test('first section display a button and a text with the selected country', () => {
+  const {getByTestId, getByRole} = renderWithProviders(<HomePage />)
+
+  const country = countries.attributes.list.find(
+    ({code}: {code: string}) => code === countries.attributes.selected,
+  )
+
+  expect(getByRole('button', {name: 'Get started'})).toBeDefined()
+  expect(getByTestId('trusted-text').textContent).toEqual(
+    `Trusted across${country.name}`,
+  )
+})
