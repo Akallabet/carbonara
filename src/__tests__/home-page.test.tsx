@@ -1,25 +1,24 @@
+import {act, waitFor} from '@testing-library/react'
 import HomePage from '../pages'
-import header from '../mocks/content/header.json'
-import footer from '../mocks/content/footer.json'
 
 import {renderWithProviders} from '../test-utils/render-with-providers'
-// import {fireEvent, within} from '@testing-library/react'
 
-const content = {
-  header,
-  footer,
-}
+import countries from '../content/countries.md'
+import home from '../content/home.md'
 
-test.skip('should display a dropdown with a list of countries', () => {
-  const {getAllByAltText, getByText, getByRole} = renderWithProviders(
-    <HomePage />,
-    content,
-  )
+jest.useFakeTimers()
 
-  expect(getAllByAltText(header.logo.altText).length).toEqual(2)
-  header.nav.links.forEach(({label}) => {
-    expect(getByText(label)).toBeVisible()
+test('first section should display a text with a location city that changes every 3 seconds', async () => {
+  const {getByText, findByText} = renderWithProviders(<HomePage />)
+
+  expect(getByText(home.attributes.mainSection.text)).toBeDefined()
+  expect(getByText(countries.attributes.list[0].cities[0])).toBeDefined()
+
+  act(() => {
+    jest.advanceTimersByTime(3000)
   })
-  expect(getByRole('button', {name: 'For Diners'})).toBeDefined()
-  expect(getByRole('link', {name: 'Sign up'})).toBeDefined()
+
+  await waitFor(() =>
+    expect(findByText(countries.attributes.list[0].cities[1])).toBeDefined(),
+  )
 })

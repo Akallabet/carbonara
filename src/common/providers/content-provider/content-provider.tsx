@@ -10,8 +10,13 @@ interface ContentComponent {
 const ContentProvider: <T>(params: {
   children: JSX.Element
   data: T
-}) => JSX.Element = ({data: content, children}: ContentComponent) => (
-  <Provider value={{content}}>{children}</Provider>
-)
+}) => JSX.Element = ({data, children}: ContentComponent) => {
+  const keys = Object.keys(data)
+  const content = keys.reduce((content, key) => {
+    content[key] = data[key].frontmatter
+    return content
+  }, {})
+  return <Provider value={{content}}>{children}</Provider>
+}
 
 export default ContentProvider

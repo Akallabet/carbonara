@@ -20,5 +20,5 @@ export interface HeaderProps {
 
 export interface CountriesSelectProps {
   selected: string
-  list: Array<{code: string; name: string}>
+  list: Array<{code: string; name: string; cities: Array<string>}>
 }

@@ -1,0 +1,15 @@
+---
+title: 'header'
+logo:
+  altText: 'Carbonara Logo'
+nav:
+  links:
+    [
+      {label: 'Waitlist', url: '#'},
+      {label: 'Reservation', url: '#'},
+      {label: 'Why are we FREE?', url: '#'},
+    ]
+  buttons:
+    diners: 'For Diners'
+    signUp: 'Sign up'
+---

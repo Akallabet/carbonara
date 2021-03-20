@@ -2,9 +2,42 @@ import {render, RenderResult} from '@testing-library/react'
 import PageProvider from '../common/providers/page-provider'
 import ThemeProvider from '../common/providers/theme-provider'
 
-type HOFRender = <T>(Component: JSX.Element, data: T) => RenderResult
+import header from '../content/header.md'
+import footer from '../content/footer.md'
+import countries from '../content/countries.md'
+import home from '../content/home.md'
 
-export const renderWithProviders: HOFRender = (Component, data) =>
+const mockImageData = () => ({
+  childImageSharp: {
+    gatsbyImageData: {
+      layout: '',
+      width: '',
+      height: '',
+      images: 'fallback',
+    },
+  },
+})
+
+home.attributes.mainSection.backgroundImage.src = mockImageData()
+
+const data = {
+  header: {
+    frontmatter: header.attributes,
+  },
+  footer: {
+    frontmatter: footer.attributes,
+  },
+  countries: {
+    frontmatter: countries.attributes,
+  },
+  home: {
+    frontmatter: home.attributes,
+  },
+}
+
+type HOFRender = (Component: JSX.Element) => RenderResult
+
+export const renderWithProviders: HOFRender = Component =>
   render(
     <ThemeProvider
       element={<PageProvider props={{data}} element={Component} />}

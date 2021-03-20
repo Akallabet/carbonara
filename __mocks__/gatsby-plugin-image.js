@@ -7,4 +7,9 @@ module.exports = {
       ...props,
     }),
   ),
+  GatsbyImage: jest.fn().mockImplementation(props =>
+    React.createElement('img', {
+      ...props,
+    }),
+  ),
 }

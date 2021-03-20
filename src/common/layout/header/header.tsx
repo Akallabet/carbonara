@@ -36,20 +36,20 @@ const Header: FunctionComponent<HeaderProps> = ({
 
 export default withContent(Header)
 
-export const query = graphql`
-  fragment Header on RestApiContentHeader {
-    logo {
-      altText
-    }
-    nav {
-      links {
-        label
-        url
-      }
-      buttons {
-        diners
-        signUp
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   fragment Header on MarkdownRemark {
+//     logo {
+//       altText
+//     }
+//     nav {
+//       links {
+//         label
+//         url
+//       }
+//       buttons {
+//         diners
+//         signUp
+//       }
+//     }
+//   }
+// `

@@ -1,4 +1,4 @@
-require('./src/mocks')
+// require('./src/mocks')
 
 module.exports = {
   siteMetadata: {
@@ -27,19 +27,9 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pages',
-        path: './src/pages/',
+        path: './src/content/',
       },
-      __key: 'pages',
-    },
-    {
-      resolve: 'gatsby-source-rest-api',
-      options: {
-        endpoints: [
-          'https://test.com/content/header',
-          'https://test.com/content/footer',
-          'https://test.com/content/countries',
-        ],
-      },
+      __key: 'content',
     },
   ],
 }

@@ -1,5 +1,4 @@
 import {FunctionComponent} from 'react'
-import {graphql} from 'gatsby'
 import {withContent} from '../../providers/content-provider'
 import {FooterProps} from './types'
 import {Box, Grid, Typography} from '@material-ui/core'
@@ -68,13 +67,3 @@ const Footer: FunctionComponent<FooterProps> = ({
   )
 }
 export default withContent(Footer)
-
-export const query = graphql`
-  fragment Footer on RestApiContentFooter {
-    copyRight
-    main
-    socialMedia {
-      type
-    }
-  }
-`
