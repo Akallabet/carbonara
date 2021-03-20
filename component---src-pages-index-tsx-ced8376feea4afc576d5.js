@@ -1,2 +1,0 @@
-(self.webpackChunkcarbonara=self.webpackChunkcarbonara||[]).push([[691],{2494:function(a,n,r){"use strict";r.r(n);var e=r(5893);n.default=function(){return(0,e.jsx)(e.Fragment,{children:"home"})}}}]);
-//# sourceMappingURL=component---src-pages-index-tsx-ced8376feea4afc576d5.js.map
