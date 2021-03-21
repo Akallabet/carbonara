@@ -29,6 +29,16 @@ home.attributes.logosSection.logos = home.attributes.logosSection.logos.map(
 home.attributes.findOutSection.square1.image.src = mockImageData()
 home.attributes.findOutSection.square2.image.src = mockImageData()
 
+home.attributes.reviewSection.reviews = home.attributes.reviewSection.reviews.map(
+  ({text, image: {alt}}) => ({
+    text,
+    image: {
+      alt,
+      src: mockImageData(),
+    },
+  }),
+)
+
 const data = {
   header: {
     frontmatter: header.attributes,

@@ -22,6 +22,7 @@ test('first section should display a text with a location city that changes ever
   await waitFor(() =>
     expect(findByText(countries.attributes.list[0].cities[1])).toBeDefined(),
   )
+  jest.clearAllTimers()
 })
 
 test('first section should change the list of location cities based on the dropdown selection', async () => {
@@ -85,4 +86,17 @@ test('find out section - should display two images with text and buttons', () =>
     getByAltText(home.attributes.findOutSection.square2.image.alt),
   ).toBeDefined()
   expect(getByText(home.attributes.findOutSection.square2.text)).toBeDefined()
+})
+
+test('carousel section - should rotate image and text', async () => {
+  const {getByText, findByText, getByTestId} = renderWithProviders(<HomePage />)
+
+  expect(getByText(home.attributes.reviewSection.reviews[0].text)).toBeDefined()
+
+  act(() => {
+    jest.advanceTimersByTime(20000)
+  })
+
+  expect(getByTestId('carousel-0')).not.toBeVisible()
+  expect(getByTestId('carousel-1')).toBeVisible()
 })

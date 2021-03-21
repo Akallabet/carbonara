@@ -2,18 +2,16 @@ import {IGatsbyImageData} from 'gatsby-plugin-image'
 import {CountriesSelectProps} from '../common/layout/header/types'
 import {WithCountriesProps} from '../countries/types'
 
+export interface ImageProps {
+  src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
+  alt: string
+}
+
 export interface MainSectionProps extends WithCountriesProps {
   content: {
     home: {
       mainSection: {
-        backgroundImage: {
-          src: {
-            childImageSharp: {
-              gatsbyImageData: IGatsbyImageData
-            }
-          }
-          alt: string
-        }
+        backgroundImage: ImageProps
         text: string
         button: string
       }
@@ -27,10 +25,7 @@ export interface LogosSectionProps extends WithCountriesProps {
     home: {
       logosSection: {
         text: string
-        logos: Array<{
-          src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
-          alt: string
-        }>
+        logos: Array<ImageProps>
       }
     }
     countries: CountriesSelectProps
@@ -62,19 +57,26 @@ export interface FindOutProps {
         square1: {
           text: string
           button: string
-          image: {
-            src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
-            alt: string
-          }
+          image: ImageProps
         }
         square2: {
           text: string
           button: string
-          image: {
-            src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
-            alt: string
-          }
+          image: ImageProps
         }
+      }
+    }
+  }
+}
+
+export interface ReviewSectionProps {
+  content: {
+    home: {
+      reviewSection: {
+        reviews: Array<{
+          text: string
+          image: ImageProps
+        }>
       }
     }
   }

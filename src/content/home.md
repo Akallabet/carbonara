@@ -49,4 +49,20 @@ findOutSection:
     image:
       src: '../assets/images/reservation.png'
       alt: 'Reservation restaurants picture'
+reviewSection:
+  reviews:
+    [
+      {
+        text: 'Light, Fast & Powerful, I love how easy Carbonara is to use',
+        image: {src: '../assets/images/review1.png', alt: 'review 1'},
+      },
+      {
+        text: 'Easily work with your team and keep the waitlist up to date.',
+        image: {src: '../assets/images/review2.png', alt: 'review 2'},
+      },
+      {
+        text: 'Improve your customer experince and better hospitality.',
+        image: {src: '../assets/images/review3.png', alt: 'review 3'},
+      },
+    ]
 ---
