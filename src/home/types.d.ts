@@ -81,3 +81,20 @@ export interface ReviewSectionProps {
     }
   }
 }
+
+export interface FeaturesSectionProps {
+  content: {
+    home: {
+      featuresSection: {
+        features: Array<
+          Array<{
+            type: string
+            description?: string
+            title?: string
+            image?: ImageProps
+          }>
+        >
+      }
+    }
+  }
+}

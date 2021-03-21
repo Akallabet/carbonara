@@ -100,3 +100,9 @@ test('carousel section - should rotate image and text', async () => {
   expect(getByTestId('carousel-0')).not.toBeVisible()
   expect(getByTestId('carousel-1')).toBeVisible()
 })
+
+test('features section - should display images and text for two features', async () => {
+  const {getByText, findByText, getByTestId} = renderWithProviders(<HomePage />)
+
+  expect(getByText('A simple waitlist for your whole team')).toBeDefined()
+})

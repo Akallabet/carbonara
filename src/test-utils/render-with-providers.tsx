@@ -39,6 +39,26 @@ home.attributes.reviewSection.reviews = home.attributes.reviewSection.reviews.ma
   }),
 )
 
+home.attributes.featuresSection.features = home.attributes.featuresSection.features.map(
+  row =>
+    row.map(({type, ...rest}) => {
+      if (type === 'image') {
+        return {
+          type,
+          ...rest,
+          image: {
+            alt: rest.image.alt,
+            src: mockImageData(),
+          },
+        }
+      } else
+        return {
+          type,
+          ...rest,
+        }
+    }),
+)
+
 const data = {
   header: {
     frontmatter: header.attributes,

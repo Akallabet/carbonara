@@ -2,6 +2,7 @@ import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
 import {Paper} from '@material-ui/core'
 import {
+  FeaturesSection,
   FindOutSection,
   InfoSection,
   LogosSection,
@@ -17,6 +18,7 @@ const IndexPage: FunctionComponent = () => {
       <InfoSection />
       <FindOutSection />
       <ReviewSection />
+      <FeaturesSection />
     </Paper>
   )
 }
@@ -127,6 +129,21 @@ export const query = graphql`
         reviewSection {
           reviews {
             text
+            image {
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+              alt
+            }
+          }
+        }
+        featuresSection {
+          features {
+            description
+            title
+            type
             image {
               src {
                 childImageSharp {
