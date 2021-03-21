@@ -1,20 +1,9 @@
 import {Box, Grid, GridSize, Typography} from '@material-ui/core'
+import {GatsbyImage} from 'gatsby-plugin-image'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
 import {LogosSectionProps} from './types'
-
-import DonnePepe from './logos/donne-pepe'
-import MammaPizza from './logos/mamma-pizza'
-import MaggieFu from './logos/maggie-fu'
-import EighteenB from './logos/18B'
-
-const logoComponents = {
-  'donne-pepe': DonnePepe,
-  'mamma-pizza': MammaPizza,
-  'maggie-fu': MaggieFu,
-  '18B': EighteenB,
-}
 
 const LogosSection = ({
   selectedCountry,
@@ -38,12 +27,14 @@ const LogosSection = ({
         <Box component="span">{name}</Box>
       </Typography>
       <Grid container>
-        {logos.map((logo: string) => {
-          const Logo = logoComponents[logo] || (() => '')
+        {logos.map(({src, alt}) => {
           return (
-            <Grid key={logo} item xs={12} sm={logosSpaces}>
+            <Grid key={alt} item xs={12} sm={logosSpaces}>
               <Box textAlign="center">
-                <Logo />
+                <GatsbyImage
+                  image={src.childImageSharp.gatsbyImageData}
+                  alt={alt}
+                />
               </Box>
             </Grid>
           )

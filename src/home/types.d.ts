@@ -15,7 +15,7 @@ export interface MainSectionProps extends WithCountriesProps {
           alt: string
         }
         text: string
-        trustedText: string
+        button: string
       }
     }
     countries: CountriesSelectProps
@@ -27,9 +27,30 @@ export interface LogosSectionProps extends WithCountriesProps {
     home: {
       logosSection: {
         text: string
-        logos: Array<string>
+        logos: Array<{
+          src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
+          alt: string
+        }>
       }
     }
     countries: CountriesSelectProps
+  }
+}
+
+export interface InfoSectionProps {
+  content: {
+    home: {
+      infoSection: {
+        text: string
+        infos: Array<{
+          text: string
+          icon: string
+          link: {
+            url: string
+            label: string
+          }
+        }>
+      }
+    }
   }
 }

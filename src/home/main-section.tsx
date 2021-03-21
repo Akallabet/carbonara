@@ -1,5 +1,5 @@
-import {Box, Button, Grid, Typography} from '@material-ui/core'
-import {GatsbyImage, StaticImage} from 'gatsby-plugin-image'
+import {Box, Button, Typography} from '@material-ui/core'
+import {GatsbyImage} from 'gatsby-plugin-image'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
@@ -10,12 +10,12 @@ const MainSection = ({
   selectedCountry,
   content: {
     home: {
-      mainSection: {backgroundImage, text, trustedText},
+      mainSection: {backgroundImage, text, button},
     },
     countries: {list},
   },
 }: MainSectionProps): JSX.Element => {
-  const {name, cities} = list.find(({code}) => code === selectedCountry) || {
+  const {cities} = list.find(({code}) => code === selectedCountry) || {
     cities: [],
   }
   return (
@@ -34,7 +34,7 @@ const MainSection = ({
           </Box>
         </Typography>
         <Button color="primary" variant="contained">
-          Get started
+          {button}
         </Button>
       </Box>
     </Box>

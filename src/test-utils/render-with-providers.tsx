@@ -19,6 +19,12 @@ const mockImageData = () => ({
 })
 
 home.attributes.mainSection.backgroundImage.src = mockImageData()
+home.attributes.logosSection.logos = home.attributes.logosSection.logos.map(
+  all => ({
+    ...all,
+    src: mockImageData(),
+  }),
+)
 
 const data = {
   header: {

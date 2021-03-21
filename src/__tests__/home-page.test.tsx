@@ -1,4 +1,4 @@
-import {act, waitFor} from '@testing-library/react'
+import {act, waitFor, within} from '@testing-library/react'
 import HomePage from '../pages'
 import userEvent from '@testing-library/user-event'
 
@@ -50,7 +50,23 @@ test('logos section display a button and a text with the selected country', () =
   expect(getByTestId('trusted-text').textContent).toEqual(
     `Trusted across${country.name}`,
   )
-  home.attributes.logosSection.logos.forEach((logo: string) => {
-    expect(getByAltText(logo.split('-').join(' '))).toBeDefined()
+  home.attributes.logosSection.logos.forEach(({alt}: {alt: string}) => {
+    expect(getByAltText(alt)).toBeDefined()
+  })
+})
+
+test('info section should display a set of info with links and icons', () => {
+  const {getByText, getByLabelText, getByTestId} = renderWithProviders(
+    <HomePage />,
+  )
+
+  expect(getByText('Carbonara is 100% FREE and easy to set up')).toBeDefined()
+
+  home.attributes.infoSection.infos.forEach(({text, icon, link: {label}}) => {
+    expect(getByText(text)).toBeDefined()
+    expect(getByLabelText(icon)).toBeDefined()
+    expect(
+      within(getByTestId('info-section')).getByRole('link', {name: label}),
+    ).toBeDefined()
   })
 })
