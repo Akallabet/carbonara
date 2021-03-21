@@ -54,3 +54,28 @@ export interface InfoSectionProps {
     }
   }
 }
+
+export interface FindOutProps {
+  content: {
+    home: {
+      findOutSection: {
+        square1: {
+          text: string
+          button: string
+          image: {
+            src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
+            alt: string
+          }
+        }
+        square2: {
+          text: string
+          button: string
+          image: {
+            src: {childImageSharp: {gatsbyImageData: IGatsbyImageData}}
+            alt: string
+          }
+        }
+      }
+    }
+  }
+}

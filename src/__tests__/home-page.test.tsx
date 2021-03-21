@@ -55,7 +55,7 @@ test('logos section display a button and a text with the selected country', () =
   })
 })
 
-test('info section should display a set of info with links and icons', () => {
+test('info section - should display a set of info with links and icons', () => {
   const {getByText, getByLabelText, getByTestId} = renderWithProviders(
     <HomePage />,
   )
@@ -69,4 +69,20 @@ test('info section should display a set of info with links and icons', () => {
       within(getByTestId('info-section')).getByRole('link', {name: label}),
     ).toBeDefined()
   })
+})
+
+test('find out section - should display two images with text and buttons', () => {
+  const {getByText, getByAltText, getByTestId} = renderWithProviders(
+    <HomePage />,
+  )
+  expect(
+    getByAltText(home.attributes.findOutSection.square1.image.alt),
+  ).toBeDefined()
+
+  expect(getByText(home.attributes.findOutSection.square1.text)).toBeDefined()
+
+  expect(
+    getByAltText(home.attributes.findOutSection.square2.image.alt),
+  ).toBeDefined()
+  expect(getByText(home.attributes.findOutSection.square2.text)).toBeDefined()
 })

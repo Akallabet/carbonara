@@ -36,4 +36,17 @@ infoSection:
         link: {url: '#', label: 'Learn how'},
       },
     ]
+findOutSection:
+  square1:
+    text: 'Non-Reservation Restaurants'
+    button: 'Find out more'
+    image:
+      src: '../assets/images/no-reservation.png'
+      alt: 'Non reservation restaurants picture'
+  square2:
+    text: 'Reservation Restaurants'
+    button: 'Find out more'
+    image:
+      src: '../assets/images/reservation.png'
+      alt: 'Reservation restaurants picture'
 ---

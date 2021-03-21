@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
 import {Paper} from '@material-ui/core'
-import {InfoSection, LogosSection, MainSection} from '../home'
+import {FindOutSection, InfoSection, LogosSection, MainSection} from '../home'
 
 const IndexPage: FunctionComponent = () => {
   return (
@@ -9,6 +9,7 @@ const IndexPage: FunctionComponent = () => {
       <MainSection />
       <LogosSection />
       <InfoSection />
+      <FindOutSection />
     </Paper>
   )
 }
@@ -87,6 +88,32 @@ export const query = graphql`
             link {
               url
               label
+            }
+          }
+        }
+        findOutSection {
+          square1 {
+            text
+            button
+            image {
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+              alt
+            }
+          }
+          square2 {
+            text
+            button
+            image {
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+              alt
             }
           }
         }
