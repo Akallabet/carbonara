@@ -29,7 +29,7 @@ jobs:
         run: npm run test:ci
 
       - name: Build production
-        run: npm run build
+        run: npm run build -- --prefix-paths
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1

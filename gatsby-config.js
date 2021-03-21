@@ -1,6 +1,7 @@
 // require('./src/mocks')
 
 module.exports = {
+  pathPrefix: '/carbonara',
   siteMetadata: {
     title: 'Carbonara',
   },
