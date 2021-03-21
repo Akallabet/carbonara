@@ -37,51 +37,6 @@ const MainSection = ({
           Get started
         </Button>
       </Box>
-      {/* <Box position="absolute" bottom={0} left={0} width="100%">
-        <Typography data-testid="trusted-text">
-          <Box component="span" mr={1}>
-            {trustedText}
-          </Box>
-          <Box component="span">{name}</Box>
-        </Typography>
-        <Box width="100%">
-          <Grid container spacing={4}>
-            <Grid item xs={12} sm={2}>
-              <StaticImage
-                src="../assets/images/donne-pepe.png"
-                alt="donne pepe"
-              />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <StaticImage
-                src="../assets/images/mamma-pizza.png"
-                alt="donne pepe"
-              />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <StaticImage
-                src="../assets/images/maggie-fu.png"
-                alt="donne pepe"
-              />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <StaticImage src="../assets/images/18B.png" alt="donne pepe" />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <StaticImage
-                src="../assets/images/mamma-pizza.png"
-                alt="donne pepe"
-              />
-            </Grid>
-            <Grid item xs={12} sm={2}>
-              <StaticImage
-                src="../assets/images/donne-pepe.png"
-                alt="donne pepe"
-              />
-            </Grid>
-          </Grid>
-        </Box>
-      </Box> */}
     </Box>
   )
 }

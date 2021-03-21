@@ -21,3 +21,15 @@ export interface MainSectionProps extends WithCountriesProps {
     countries: CountriesSelectProps
   }
 }
+
+export interface LogosSectionProps extends WithCountriesProps {
+  content: {
+    home: {
+      logosSection: {
+        text: string
+        logos: Array<string>
+      }
+    }
+    countries: CountriesSelectProps
+  }
+}

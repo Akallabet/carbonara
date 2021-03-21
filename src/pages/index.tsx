@@ -57,7 +57,6 @@ export const query = graphql`
       frontmatter {
         mainSection {
           text
-          trustedText
           backgroundImage {
             alt
             src {
@@ -66,6 +65,10 @@ export const query = graphql`
               }
             }
           }
+        }
+        logosSection {
+          text
+          logos
         }
       }
     }
