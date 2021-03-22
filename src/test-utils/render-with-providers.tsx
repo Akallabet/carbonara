@@ -58,6 +58,17 @@ home.attributes.featuresSection.features = home.attributes.featuresSection.featu
         }
     }),
 )
+home.attributes.featuredTopicsSection.topics = home.attributes.featuredTopicsSection.topics.map(
+  ({text, image}) => {
+    return {
+      text,
+      image: {
+        alt: image.alt,
+        src: mockImageData(),
+      },
+    }
+  },
+)
 
 const data = {
   header: {

@@ -114,4 +114,21 @@ marketingSection:
   button:
     label: 'Sign up'
     href: '/signup'
+featuredTopicsSection:
+  title: 'Featured topics'
+  topics:
+    [
+      {
+        text: 'Light, Fast & Powerful, I love how easy Carbonara is to use',
+        image: {src: '../assets/images/review1.png', alt: 'topic 1'},
+      },
+      {
+        text: 'Easily work with your team and keep the waitlist up to date.',
+        image: {src: '../assets/images/review2.png', alt: 'topic 2'},
+      },
+      {
+        text: 'Improve your customer experince and better hospitality.',
+        image: {src: '../assets/images/review3.png', alt: 'topic 3'},
+      },
+    ]
 ---

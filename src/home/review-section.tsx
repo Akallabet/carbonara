@@ -24,7 +24,12 @@ const ReviewSection = ({
   const {isGreaterThanMobile} = useBreakpoints()
 
   return (
-    <Box width="100%" position="relative" overflow="hidden">
+    <Box
+      width="100%"
+      position="relative"
+      overflow="hidden"
+      data-testid="review-section"
+    >
       <Box
         position="absolute"
         zIndex={999}

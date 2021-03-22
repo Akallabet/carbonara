@@ -87,9 +87,13 @@ test('find out section - should display two images with text and buttons', () =>
 })
 
 test('carousel section - should rotate image and text', async () => {
-  const {getByText, getByTestId} = renderWithProviders(<HomePage />)
+  const {getByTestId} = renderWithProviders(<HomePage />)
 
-  expect(getByText(home.attributes.reviewSection.reviews[0].text)).toBeDefined()
+  expect(
+    within(getByTestId('review-section')).getByText(
+      home.attributes.reviewSection.reviews[0].text,
+    ),
+  ).toBeDefined()
 
   act(() => {
     jest.advanceTimersByTime(20000)
@@ -148,4 +152,9 @@ test('marketing section - should display a section with text and signup button',
       name: home.attributes.marketingSection.label,
     }),
   ).toBeDefined()
+})
+
+test('featured section - should display a set of featured posts', () => {
+  const {getByText} = renderWithProviders(<HomePage />)
+  expect(getByText(home.attributes.featuredTopicsSection.title)).toBeDefined()
 })

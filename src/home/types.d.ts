@@ -116,3 +116,17 @@ export interface MarketingSectionProps {
     }
   }
 }
+
+export interface FeaturedTopicsSectionProps {
+  content: {
+    home: {
+      featuredTopicsSection: {
+        title: string
+        topics: Array<{
+          text: string
+          image: ImageProps
+        }>
+      }
+    }
+  }
+}

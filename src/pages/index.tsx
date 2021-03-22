@@ -2,6 +2,7 @@ import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
 import {Paper} from '@material-ui/core'
 import {
+  FeaturedTopicsSection,
   FeaturesSection,
   FindOutSection,
   InfoSection,
@@ -21,6 +22,7 @@ const IndexPage: FunctionComponent = () => {
       <ReviewSection />
       <FeaturesSection />
       <MarketingSection />
+      <FeaturedTopicsSection />
     </Paper>
   )
 }
@@ -171,6 +173,20 @@ export const query = graphql`
           button {
             label
             href
+          }
+        }
+        featuredTopicsSection {
+          title
+          topics {
+            text
+            image {
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+              alt
+            }
           }
         }
       }
