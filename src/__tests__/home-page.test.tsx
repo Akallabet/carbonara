@@ -73,9 +73,7 @@ test('info section - should display a set of info with links and icons', () => {
 })
 
 test('find out section - should display two images with text and buttons', () => {
-  const {getByText, getByAltText, getByTestId} = renderWithProviders(
-    <HomePage />,
-  )
+  const {getByText, getByAltText} = renderWithProviders(<HomePage />)
   expect(
     getByAltText(home.attributes.findOutSection.square1.image.alt),
   ).toBeDefined()
@@ -89,7 +87,7 @@ test('find out section - should display two images with text and buttons', () =>
 })
 
 test('carousel section - should rotate image and text', async () => {
-  const {getByText, findByText, getByTestId} = renderWithProviders(<HomePage />)
+  const {getByText, getByTestId} = renderWithProviders(<HomePage />)
 
   expect(getByText(home.attributes.reviewSection.reviews[0].text)).toBeDefined()
 
@@ -102,7 +100,52 @@ test('carousel section - should rotate image and text', async () => {
 })
 
 test('features section - should display images and text for two features', async () => {
-  const {getByText, findByText, getByTestId} = renderWithProviders(<HomePage />)
+  const {getByText, getByAltText} = renderWithProviders(<HomePage />)
 
-  expect(getByText('A simple waitlist for your whole team')).toBeDefined()
+  home.attributes.featuresSection.features.forEach(row => {
+    row.forEach(({type, ...rest}) => {
+      let element
+      if (type === 'image') {
+        element = getByAltText(rest.image.alt)
+      } else {
+        element = getByText(rest.title)
+      }
+      expect(element).toBeDefined()
+    })
+  })
+})
+
+test('marketing section - should display a section with text and signup button', async () => {
+  const {getByTestId} = renderWithProviders(<HomePage />)
+
+  expect(
+    within(getByTestId('marketing-section')).getByText(
+      home.attributes.marketingSection.title,
+    ),
+  ).toBeDefined()
+  expect(
+    within(getByTestId('marketing-section')).getByText(
+      home.attributes.marketingSection.description,
+    ),
+  ).toBeDefined()
+  expect(
+    within(getByTestId('marketing-section')).getByText(
+      home.attributes.marketingSection.highlightText,
+    ),
+  ).toBeDefined()
+  expect(
+    within(getByTestId('marketing-section')).getByText(
+      home.attributes.marketingSection.sub1,
+    ),
+  ).toBeDefined()
+  expect(
+    within(getByTestId('marketing-section')).getByText(
+      home.attributes.marketingSection.sub2,
+    ),
+  ).toBeDefined()
+  expect(
+    within(getByTestId('marketing-section')).getByRole('link', {
+      name: home.attributes.marketingSection.label,
+    }),
+  ).toBeDefined()
 })

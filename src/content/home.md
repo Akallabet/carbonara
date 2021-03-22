@@ -102,4 +102,16 @@ featuresSection:
         },
       ],
     ]
+marketingSection:
+  title: 'A Price To Suit Everyone'
+  description:
+    'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis
+    parturient montes, nascetur ridiculus'
+  highlightText: 'FREE'
+  sub1: 'Download and use'
+  sub2: 'No Subscription. Simple.'
+  button:
+    label: 'Sign up'
+    href: '/signup'
 ---

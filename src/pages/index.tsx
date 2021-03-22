@@ -7,6 +7,7 @@ import {
   InfoSection,
   LogosSection,
   MainSection,
+  MarketingSection,
   ReviewSection,
 } from '../home'
 
@@ -19,6 +20,7 @@ const IndexPage: FunctionComponent = () => {
       <FindOutSection />
       <ReviewSection />
       <FeaturesSection />
+      <MarketingSection />
     </Paper>
   )
 }
@@ -158,6 +160,17 @@ export const query = graphql`
               }
               alt
             }
+          }
+        }
+        marketingSection {
+          title
+          description
+          highlightText
+          sub1
+          sub2
+          button {
+            label
+            href
           }
         }
       }

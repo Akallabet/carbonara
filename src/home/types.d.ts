@@ -98,3 +98,21 @@ export interface FeaturesSectionProps {
     }
   }
 }
+
+export interface MarketingSectionProps {
+  content: {
+    home: {
+      marketingSection: {
+        title: string
+        description: string
+        highlightText: string
+        sub1: string
+        sub2: string
+        button: {
+          label: string
+          href: string
+        }
+      }
+    }
+  }
+}
