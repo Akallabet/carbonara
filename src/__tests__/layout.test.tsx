@@ -8,42 +8,54 @@ import {fireEvent, within} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 test('should display an Header with logo, links and buttons for Desktop', () => {
-  const {getAllByAltText, getByText, getByRole} = renderWithProviders(
-    <HomePage />,
-  )
+  const {
+    getAllByAltText,
+    getByText,
+    getByRole,
+    getByTestId,
+  } = renderWithProviders(<HomePage />)
 
   expect(getAllByAltText(header.attributes.logo.altText).length).toEqual(2)
   header.attributes.nav.links.forEach(({label}) => {
     expect(getByText(label)).toBeVisible()
   })
   expect(getByRole('button', {name: 'For Diners'})).toBeDefined()
-  expect(getByRole('link', {name: 'Sign up'})).toBeDefined()
+  expect(
+    within(getByTestId('desktop')).getByRole('link', {name: 'Sign up'}),
+  ).toBeDefined()
 })
 
 test('should display the Header with logo and menu icon for Mobile', async () => {
-  const {getByTestId, getByRole} = renderWithProviders(<HomePage />)
-  expect(
-    getByRole('link', {
-      name: 'Sign up',
-      hidden: false,
-    }),
-  ).toBeDefined()
+  const {getByTestId, getByRole, findByTestId} = renderWithProviders(
+    <HomePage />,
+  )
   expect(within(getByTestId('mobile')).queryByText('Sign up')).toBeNull()
 
   fireEvent.click(getByRole('button', {name: 'menu'}))
+
+  expect(await findByTestId('menu')).toBeDefined()
   expect(
-    await within(getByTestId('menu')).findByText('Sign up'),
+    within(getByTestId('menu')).getByRole('link', {
+      name: 'Sign up',
+    }),
   ).toBeInTheDocument()
 })
 
 test('should display the footer', () => {
-  const {getByText, getByLabelText} = renderWithProviders(<HomePage />)
+  const {getByText, getByLabelText, getByTestId} = renderWithProviders(
+    <HomePage />,
+  )
 
   expect(getByText(footer.attributes.copyRight)).toBeDefined()
   expect(getByText(footer.attributes.main)).toBeDefined()
   footer.attributes.socialMedia.forEach(({type}) => {
     expect(getByLabelText(type)).toBeDefined()
   })
+  expect(
+    within(getByTestId('footer')).getByRole('button', {
+      name: footer.attributes.buttons.signUp.label,
+    }),
+  ).toBeDefined()
 })
 
 test('should display a functional dropdown with a list of countries to select', () => {

@@ -51,6 +51,12 @@ export const query = graphql`
         socialMedia {
           type
         }
+        buttons {
+          signUp {
+            label
+            href
+          }
+        }
       }
     }
     countries: markdownRemark(frontmatter: {title: {eq: "countries"}}) {

@@ -1,11 +1,15 @@
-export interface FooterContent {
-  copyRight: string
-  main: string
-  socialMedia: Array<{type: string}>
-}
-
 export interface FooterProps {
   content: {
-    footer: FooterContent
+    footer: {
+      copyRight: string
+      main: string
+      socialMedia: Array<{type: string}>
+      buttons: {
+        signUp: {
+          label: string
+          href: string
+        }
+      }
+    }
   }
 }

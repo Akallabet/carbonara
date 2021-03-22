@@ -10,4 +10,8 @@ socialMedia:
     {type: 'youtube'},
     {type: 'instagram'},
   ]
+buttons:
+  signUp:
+    label: 'Sign up'
+    href: '/signup'
 ---
