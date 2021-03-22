@@ -1,12 +1,11 @@
 import {GatsbyImage} from 'gatsby-plugin-image'
-import {Box, Fade, Grid, IconButton, Typography} from '@material-ui/core'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import {Box, Grid, Typography} from '@material-ui/core'
 
-import {useState} from 'react'
 import {withContent} from '../common/providers/content-provider'
-import {useBreakpoints, useTimeout} from '../common/hooks'
+import {useBreakpoints} from '../common/hooks'
 import {ReviewSectionProps} from './types'
+import {Carousel} from '../common/components'
+import ImageWithOverlay from '../common/components/image-with-overlay'
 
 const ReviewSection = ({
   content: {
@@ -15,12 +14,6 @@ const ReviewSection = ({
     },
   },
 }: ReviewSectionProps): JSX.Element => {
-  const [active, setActive] = useState(0)
-  const next = () => setActive(active === reviews.length - 1 ? 0 : active + 1)
-  const prev = () => setActive(active === 0 ? reviews.length - 1 : active - 1)
-
-  useTimeout(next, 20000, active)
-
   const {isGreaterThanMobile} = useBreakpoints()
 
   return (
@@ -30,59 +23,32 @@ const ReviewSection = ({
       overflow="hidden"
       data-testid="review-section"
     >
-      <Box
-        position="absolute"
-        zIndex={999}
-        top={0}
-        left={0}
-        width="100%"
-        height="100%"
-        display="flex"
-        alignItems="center"
-      >
-        <IconButton onClick={prev}>
-          <ChevronLeftIcon />
-        </IconButton>
-        <IconButton onClick={next}>
-          <ChevronRightIcon />
-        </IconButton>
-      </Box>
-      {reviews.map(({text, image: {src, alt}}, i) => (
-        <Fade in={i === active} key={alt}>
-          <Box
-            position={i === active ? 'relative' : 'absolute'}
-            data-testid={`carousel-${i}`}
-          >
-            {isGreaterThanMobile ? (
-              <Grid container>
-                <Grid item xs={6}>
-                  <Typography variant="h3" color="textSecondary">
-                    {text}
-                  </Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <GatsbyImage
-                    image={src.childImageSharp.gatsbyImageData}
-                    alt={alt}
-                  />
-                </Grid>
+      <Carousel
+        interval={20000}
+        commands={true}
+        elements={reviews.map(({text, image}, i) =>
+          isGreaterThanMobile ? (
+            <Grid container>
+              <Grid item xs={6}>
+                <Typography variant="h3" color="textSecondary">
+                  {text}
+                </Typography>
               </Grid>
-            ) : (
-              <Box position="relative">
+              <Grid item xs={6}>
                 <GatsbyImage
-                  image={src.childImageSharp.gatsbyImageData}
-                  alt={alt}
+                  image={image.src.childImageSharp.gatsbyImageData}
+                  alt={image.alt}
                 />
-                <Box position="absolute" left={0} bottom={0}>
-                  <Typography variant="h3" color="textSecondary">
-                    {text}
-                  </Typography>
-                </Box>
-              </Box>
-            )}
-          </Box>
-        </Fade>
-      ))}
+              </Grid>
+            </Grid>
+          ) : (
+            <ImageWithOverlay
+              image={image}
+              text={<Typography variant="h4">{text}</Typography>}
+            />
+          ),
+        )}
+      />
     </Box>
   )
 }

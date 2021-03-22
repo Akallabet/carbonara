@@ -8,9 +8,6 @@ export default createMuiTheme({
     secondary: {
       main: '#24232D',
     },
-    tertiary: {
-      main: '#FFFFFF',
-    },
     text: {
       primary: '#FFFFFF',
       secondary: '#232d36',

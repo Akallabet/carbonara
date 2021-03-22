@@ -1,9 +1,9 @@
 import {Box, Button, Typography} from '@material-ui/core'
 import {GatsbyImage} from 'gatsby-plugin-image'
+import {Carousel} from '../common/components'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
-import CityRoll from './city-roll'
 import {MainSectionProps} from './types'
 
 const MainSection = ({
@@ -19,7 +19,7 @@ const MainSection = ({
     cities: [],
   }
   return (
-    <Box position="relative">
+    <Box position="relative" data-testid="main-section">
       <GatsbyImage
         image={backgroundImage.src.childImageSharp.gatsbyImageData}
         alt={backgroundImage.alt}
@@ -29,10 +29,15 @@ const MainSection = ({
           <Box component="span" mr={1}>
             {text}
           </Box>
-          <Box component="span">
-            <CityRoll cities={cities} />
-          </Box>
         </Typography>
+        <Box component="span">
+          <Carousel
+            interval={3000}
+            elements={cities.map((city: string) => (
+              <span key={city}>{city}</span>
+            ))}
+          />
+        </Box>
         <Button color="primary" variant="contained">
           {button}
         </Button>

@@ -96,11 +96,20 @@ test('carousel section - should rotate image and text', async () => {
   ).toBeDefined()
 
   act(() => {
-    jest.advanceTimersByTime(20000)
+    jest.advanceTimersByTime(21000)
   })
 
-  expect(getByTestId('carousel-0')).not.toBeVisible()
-  expect(getByTestId('carousel-1')).toBeVisible()
+  expect(
+    within(getByTestId('review-section')).queryByText(
+      home.attributes.reviewSection.reviews[0].text,
+    ),
+  ).toBeNull()
+
+  expect(
+    within(getByTestId('review-section')).getByText(
+      home.attributes.reviewSection.reviews[1].text,
+    ),
+  ).toBeDefined()
 })
 
 test('features section - should display images and text for two features', async () => {
