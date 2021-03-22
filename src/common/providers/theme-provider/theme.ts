@@ -1,6 +1,6 @@
 import {createMuiTheme} from '@material-ui/core'
 
-export default createMuiTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#F1AF00',
@@ -22,3 +22,16 @@ export default createMuiTheme({
     },
   },
 })
+
+theme.typography.h2 = {
+  fontSize: '3.5rem',
+  fontFamily: '"Roboto", "Helvetica", "Arial"',
+  fontWeight: 300,
+  lineHeight: 1.2,
+  letterSpacing: '-0.00833em',
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '2.0rem',
+  },
+}
+
+export default theme
