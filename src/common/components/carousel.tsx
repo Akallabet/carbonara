@@ -2,7 +2,7 @@ import {Box, Fade, IconButton} from '@material-ui/core'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import {useState} from 'react'
-import {useTimeout} from '../hooks'
+import {useCarousel, useTimeout} from '../hooks'
 
 interface CarouselProps {
   commands?: boolean
@@ -17,11 +17,7 @@ const Carousel = ({
   interval = 1000,
   duration = 500,
 }: CarouselProps): JSX.Element => {
-  const [active, setActive] = useState(0)
-  const next = () => setActive(active === elements.length - 1 ? 0 : active + 1)
-  const prev = () => setActive(active === 0 ? elements.length - 1 : active - 1)
-
-  useTimeout(next, interval, active)
+  const {active, prev, next} = useCarousel(elements.length, interval)
 
   return (
     <Box width="100%" position="relative" overflow="hidden">

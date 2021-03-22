@@ -1,6 +1,6 @@
 import {Box, Button, Typography} from '@material-ui/core'
 import {GatsbyImage} from 'gatsby-plugin-image'
-import {Carousel} from '../common/components'
+import {Carousel, TextCarousel} from '../common/components'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
@@ -29,15 +29,10 @@ const MainSection = ({
           <Box component="span" mr={1}>
             {text}
           </Box>
+          <Box component="span">
+            <TextCarousel interval={3000} elements={cities} />
+          </Box>
         </Typography>
-        <Box component="span">
-          <Carousel
-            interval={3000}
-            elements={cities.map((city: string) => (
-              <span key={city}>{city}</span>
-            ))}
-          />
-        </Box>
         <Button color="primary" variant="contained">
           {button}
         </Button>
