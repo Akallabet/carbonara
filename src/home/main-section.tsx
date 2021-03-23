@@ -1,7 +1,6 @@
 import {Box, Button, Typography} from '@material-ui/core'
 import {GatsbyImage} from 'gatsby-plugin-image'
-import {Carousel, TextCarousel} from '../common/components'
-import {useBreakpoints} from '../common/hooks'
+import {TextCarousel} from '../common/components'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
@@ -19,7 +18,6 @@ const MainSection = ({
   const {cities} = list.find(({code}) => code === selectedCountry) || {
     cities: [],
   }
-  const {isMobile} = useBreakpoints()
   return (
     <Box position="relative" data-testid="main-section">
       <GatsbyImage

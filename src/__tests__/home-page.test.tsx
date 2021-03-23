@@ -91,7 +91,7 @@ test('carousel section - should rotate image and text', async () => {
 
   expect(
     within(getByTestId('review-section')).getByText(
-      home.attributes.reviewSection.reviews[0].text,
+      `"${home.attributes.reviewSection.reviews[0].text}"`,
     ),
   ).toBeDefined()
 
@@ -101,30 +101,30 @@ test('carousel section - should rotate image and text', async () => {
 
   expect(
     within(getByTestId('review-section')).queryByText(
-      home.attributes.reviewSection.reviews[0].text,
+      `"${home.attributes.reviewSection.reviews[0].text}"`,
     ),
   ).toBeNull()
 
   expect(
     within(getByTestId('review-section')).getByText(
-      home.attributes.reviewSection.reviews[1].text,
+      `"${home.attributes.reviewSection.reviews[1].text}"`,
     ),
   ).toBeDefined()
 })
 
 test('features section - should display images and text for two features', async () => {
-  const {getByText, getByAltText} = renderWithProviders(<HomePage />)
+  const {getByTestId} = renderWithProviders(<HomePage />)
 
-  home.attributes.featuresSection.features.forEach(row => {
-    row.forEach(({type, ...rest}) => {
-      let element
-      if (type === 'image') {
-        element = getByAltText(rest.image.alt)
-      } else {
-        element = getByText(rest.title)
-      }
-      expect(element).toBeDefined()
-    })
+  home.attributes.featuresSection.features.forEach(({image, text}) => {
+    expect(
+      within(getByTestId('features-section')).getByAltText(image.alt),
+    ).toBeDefined()
+    expect(
+      within(getByTestId('features-section')).getByText(text.title),
+    ).toBeDefined()
+    expect(
+      within(getByTestId('features-section')).getByText(text.description),
+    ).toBeDefined()
   })
 })
 

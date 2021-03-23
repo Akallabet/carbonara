@@ -151,10 +151,13 @@ export const query = graphql`
         }
         featuresSection {
           features {
-            description
-            title
-            type
+            text {
+              position
+              description
+              title
+            }
             image {
+              position
               src {
                 childImageSharp {
                   gatsbyImageData(layout: FULL_WIDTH)

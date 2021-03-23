@@ -34,4 +34,15 @@ theme.typography.h2 = {
   },
 }
 
+theme.typography.h4 = {
+  fontSize: '2.125rem',
+  fontFamily: '"Roboto", "Helvetica", "Arial"',
+  fontWeight: 400,
+  lineHeight: 1.235,
+  letterSpacing: '0.00735em',
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '1.5rem',
+  },
+}
+
 export default theme

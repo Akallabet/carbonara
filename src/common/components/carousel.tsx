@@ -1,8 +1,7 @@
 import {Box, Fade, IconButton} from '@material-ui/core'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeftRounded'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import {useState} from 'react'
-import {useCarousel, useTimeout} from '../hooks'
+import {useBreakpoints, useCarousel} from '../hooks'
 
 interface CarouselProps {
   commands?: boolean
@@ -19,26 +18,42 @@ const Carousel = ({
 }: CarouselProps): JSX.Element => {
   const {active, prev, next} = useCarousel(elements.length, interval)
 
+  const {isGreaterThanTablet} = useBreakpoints()
   return (
     <Box width="100%" position="relative" overflow="hidden">
       {commands && (
-        <Box
-          position="absolute"
-          zIndex={999}
-          top={0}
-          left={0}
-          width="100%"
-          height="100%"
-          display="flex"
-          alignItems="center"
-        >
-          <IconButton onClick={prev}>
-            <ChevronLeftIcon />
-          </IconButton>
-          <IconButton onClick={next}>
-            <ChevronRightIcon />
-          </IconButton>
-        </Box>
+        <>
+          <Box
+            position="absolute"
+            zIndex={999}
+            borderRadius="50%"
+            borderColor="black"
+            border={1}
+            top="50%"
+            left={10}
+          >
+            <IconButton onClick={prev} size="small">
+              <ChevronLeftIcon
+                fontSize={isGreaterThanTablet ? 'large' : 'small'}
+              />
+            </IconButton>
+          </Box>
+          <Box
+            position="absolute"
+            zIndex={999}
+            borderRadius="50%"
+            borderColor="black"
+            border={1}
+            top="50%"
+            right={10}
+          >
+            <IconButton onClick={next} size="small">
+              <ChevronRightIcon
+                fontSize={isGreaterThanTablet ? 'large' : 'small'}
+              />
+            </IconButton>
+          </Box>
+        </>
       )}
       {elements.map((component, i) => (
         <Fade

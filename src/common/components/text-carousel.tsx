@@ -17,13 +17,7 @@ const TextCarousel = ({
   return (
     <span>
       {elements.map((component, i) => (
-        <Fade
-          in={i === active}
-          key={i}
-          mountOnEnter={true}
-          unmountOnExit={true}
-          timeout={duration}
-        >
+        <Fade in={i === active} key={i} timeout={duration}>
           <Box
             position={i === active ? 'relative' : 'absolute'}
             data-testid={`carousel-${i}`}

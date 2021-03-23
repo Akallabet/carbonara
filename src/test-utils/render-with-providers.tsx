@@ -40,23 +40,15 @@ home.attributes.reviewSection.reviews = home.attributes.reviewSection.reviews.ma
 )
 
 home.attributes.featuresSection.features = home.attributes.featuresSection.features.map(
-  row =>
-    row.map(({type, ...rest}) => {
-      if (type === 'image') {
-        return {
-          type,
-          ...rest,
-          image: {
-            alt: rest.image.alt,
-            src: mockImageData(),
-          },
-        }
-      } else
-        return {
-          type,
-          ...rest,
-        }
-    }),
+  ({image, text}) => {
+    return {
+      text,
+      image: {
+        ...image,
+        src: mockImageData(),
+      },
+    }
+  },
 )
 home.attributes.featuredTopicsSection.topics = home.attributes.featuredTopicsSection.topics.map(
   ({text, image}) => {

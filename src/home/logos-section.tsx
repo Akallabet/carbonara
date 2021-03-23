@@ -1,5 +1,6 @@
 import {Box, Grid, GridSize, Typography} from '@material-ui/core'
 import {GatsbyImage} from 'gatsby-plugin-image'
+import {useBreakpoints} from '../common/hooks'
 
 import {withContent} from '../common/providers/content-provider'
 import {withCountries} from '../countries'
@@ -18,14 +19,25 @@ const LogosSection = ({
     cities: [],
   }
   const logosSpaces = (12 / logos.length) as GridSize
+
+  const {isMobile} = useBreakpoints()
   return (
-    <Box position="relative" bgcolor="secondary.main">
-      <Typography data-testid="trusted-text">
-        <Box component="span" mr={1}>
-          {text}
-        </Box>
-        <Box component="span">{name}</Box>
-      </Typography>
+    <Box
+      position="relative"
+      bgcolor="secondary.main"
+      pt={10}
+      pb={5}
+      px={10}
+      textAlign={isMobile ? 'center' : 'left'}
+    >
+      <Box mb={10}>
+        <Typography data-testid="trusted-text" variant="h4">
+          <Box component="span" mr={1}>
+            {text}
+          </Box>
+          <Box component="span">{name}</Box>
+        </Typography>
+      </Box>
       <Grid container>
         {logos.map(({src, alt}) => {
           return (

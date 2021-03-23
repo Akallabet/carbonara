@@ -10,6 +10,7 @@ interface ImageWithOverlayProps {
 const Overlay = withStyles({
   root: {
     background: 'rgba(37,35,45,.5)',
+    padding: '20px 25px',
   },
 })(Box)
 

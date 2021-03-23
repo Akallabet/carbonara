@@ -1,9 +1,10 @@
 import {Box, Grid, Typography} from '@material-ui/core'
+import Link from '@material-ui/core/Link'
 import GetAppIcon from '@material-ui/icons/GetApp'
 import TuneIcon from '@material-ui/icons/Tune'
 import AddCircleOutlineRounded from '@material-ui/icons/AddCircleOutlineRounded'
 
-import {Link} from 'gatsby'
+import {Link as GatsbyLink} from 'gatsby'
 import React from 'react'
 import {withContent} from '../common/providers/content-provider'
 
@@ -23,24 +24,31 @@ const InfoSection = ({
   },
 }: InfoSectionProps): JSX.Element => {
   return (
-    <Box data-testid="info-section" py={12} px={10}>
-      <Typography variant="h4" color="textSecondary">
-        {text}
-      </Typography>
-      <Grid container>
+    <Box data-testid="info-section" py={10} px={10} textAlign="center">
+      <Box maxWidth={450} mx="auto" mb={10}>
+        <Typography variant="h4" color="textSecondary">
+          {text}
+        </Typography>
+      </Box>
+      <Grid container spacing={10} justify="center">
         {infos.map(({text, icon, link: {url, label}}) => {
           const Icon = icons[icon] || (() => '')
           return (
-            <Grid item key={icon} xs={12} sm={4}>
-              <Box display="flex">
+            <Grid item key={icon} sm={12} md={4}>
+              <Box display="flex" maxWidth={300} mx="auto">
                 <Box>
-                  <Icon aria-label={icon} color="secondary" />
+                  <Icon aria-label={icon} color="secondary" fontSize="large" />
                 </Box>
                 <Box>
-                  <Typography variant="body1" color="textSecondary">
-                    {text}
+                  <Typography variant="h5" color="textSecondary">
+                    <Box fontWeight="bold">{text}</Box>
                   </Typography>
-                  <Link to={url} color="textSecondary">
+                  <Link
+                    color="secondary"
+                    underline="always"
+                    component={GatsbyLink}
+                    to={url}
+                  >
                     {label}
                   </Link>
                 </Box>

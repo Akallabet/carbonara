@@ -28,11 +28,13 @@ const ReviewSection = ({
         commands={true}
         elements={reviews.map(({text, image}, i) =>
           isGreaterThanMobile ? (
-            <Grid container>
+            <Grid container key={i}>
               <Grid item xs={6}>
-                <Typography variant="h3" color="textSecondary">
-                  {text}
-                </Typography>
+                <Box pl={10} py={5} pr={5}>
+                  <Typography variant="h3" color="textSecondary">
+                    {`"${text}"`}
+                  </Typography>
+                </Box>
               </Grid>
               <Grid item xs={6}>
                 <GatsbyImage
@@ -43,8 +45,9 @@ const ReviewSection = ({
             </Grid>
           ) : (
             <ImageWithOverlay
+              key={i}
               image={image}
-              text={<Typography variant="h4">{text}</Typography>}
+              text={<Typography variant="h4">{`"${text}"`}</Typography>}
             />
           ),
         )}

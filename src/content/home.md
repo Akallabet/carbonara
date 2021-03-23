@@ -68,39 +68,40 @@ reviewSection:
 featuresSection:
   features:
     [
-      [
-        {
-          type: 'image',
-          image:
-            {src: '../assets/images/waitlist.png', alt: 'waitlist feature'},
-        },
-        {
-          type: 'text',
-          title: 'A simple waitlist for your whole team',
-          description:
-            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus',
-        },
-      ],
-      [
-        {
-          type: 'text',
-          title: 'Simple to use Table management',
-          description:
-            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-            penatibus et magnis dis parturient montes, nascetur ridiculus',
-        },
-        {
-          type: 'image',
-          image:
-            {
-              src: '../assets/images/table-management.png',
-              alt: 'table management feature',
-            },
-        },
-      ],
+      {
+        image:
+          {
+            positon: 1,
+            src: '../assets/images/waitlist.png',
+            alt: 'waitlist feature',
+          },
+        text:
+          {
+            position: 2,
+            title: 'A simple waitlist for your whole team',
+            description:
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus',
+          },
+      },
+      {
+        text:
+          {
+            position: 1,
+            title: 'Simple to use Table management',
+            description:
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+              penatibus et magnis dis parturient montes, nascetur ridiculus et',
+          },
+        image:
+          {
+            position: 2,
+            src: '../assets/images/table-management.png',
+            alt: 'table management feature',
+          },
+      },
     ]
 marketingSection:
   title: 'A Price To Suit Everyone'

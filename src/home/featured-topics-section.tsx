@@ -10,9 +10,11 @@ const FeaturedTopicsSection = ({
     },
   },
 }: FeaturedTopicsSectionProps) => (
-  <Box data-testid="featured-topics-section">
-    <Box>
-      <Typography variant="h3">{title}</Typography>
+  <Box data-testid="featured-topics-section" py={10} px={5}>
+    <Box mb={10}>
+      <Typography variant="h4" color="textSecondary">
+        {title}
+      </Typography>
     </Box>
     <Box>
       <Grid container spacing={5}>

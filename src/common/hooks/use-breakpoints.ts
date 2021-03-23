@@ -4,6 +4,7 @@ type useBreakpointsType = () => {
   isMobile: boolean
   isGreaterThanMobile: boolean
   isTablet: boolean
+  isGreaterThanTablet: boolean
   isDesktopSmall: boolean
   isDesktop: boolean
   isDesktopLarge: boolean
@@ -14,6 +15,7 @@ const useBreakpoints: useBreakpointsType = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('xs'))
   const isGreaterThanMobile = useMediaQuery(theme.breakpoints.up('sm'))
   const isTablet = useMediaQuery(theme.breakpoints.down('sm'))
+  const isGreaterThanTablet = useMediaQuery(theme.breakpoints.up('md'))
   const isDesktopSmall = useMediaQuery(theme.breakpoints.down('md'))
   const isDesktop = useMediaQuery(theme.breakpoints.down('lg'))
   const isDesktopLarge = useMediaQuery(theme.breakpoints.down('xl'))
@@ -22,6 +24,7 @@ const useBreakpoints: useBreakpointsType = () => {
     isMobile,
     isGreaterThanMobile,
     isTablet,
+    isGreaterThanTablet,
     isDesktopSmall,
     isDesktop,
     isDesktopLarge,
