@@ -1,2 +1,0 @@
-(self.webpackChunkcarbonara=self.webpackChunkcarbonara||[]).push([[278],{4143:function(n,a,r){"use strict";r.r(a);var e=r(5893);a.default=function(){return(0,e.jsx)(e.Fragment,{children:"sign up"})}}}]);
-//# sourceMappingURL=component---src-pages-signup-tsx-97883dc4c686b9472511.js.map
