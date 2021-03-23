@@ -1,8 +1,21 @@
 import {FunctionComponent} from 'react'
 import {graphql} from 'gatsby'
+import {Grid} from '@material-ui/core'
+
+import {MobileReviewSection} from '../home'
+import {Steps} from '../signup'
 
 const SignupPage: FunctionComponent = () => {
-  return <>sign up</>
+  return (
+    <Grid container>
+      <Grid item xs={12} sm={6}>
+        <Steps />
+      </Grid>
+      <Grid item xs={false} sm={6}>
+        <MobileReviewSection />
+      </Grid>
+    </Grid>
+  )
 }
 
 export default SignupPage
@@ -49,6 +62,46 @@ export const query = graphql`
           name
           shortName
           cities
+        }
+      }
+    }
+    home: markdownRemark(frontmatter: {title: {eq: "home"}}) {
+      frontmatter {
+        reviewSection {
+          reviews {
+            text
+            image {
+              src {
+                childImageSharp {
+                  gatsbyImageData(layout: FULL_WIDTH)
+                }
+              }
+              alt
+            }
+          }
+        }
+      }
+    }
+    signup: markdownRemark(frontmatter: {title: {eq: "signup"}}) {
+      frontmatter {
+        text
+        steps {
+          step
+          title
+          button
+          rows {
+            type
+            label
+            placeholder
+            required
+            width
+            messages {
+              error
+              info
+            }
+            prefix
+            options
+          }
         }
       }
     }

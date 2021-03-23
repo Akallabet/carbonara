@@ -6,6 +6,7 @@ import header from '../content/header.md'
 import footer from '../content/footer.md'
 import countries from '../content/countries.md'
 import home from '../content/home.md'
+import signup from '../content/sign-up.md'
 
 const mockImageData = () => ({
   childImageSharp: {
@@ -74,6 +75,9 @@ const data = {
   },
   home: {
     frontmatter: home.attributes,
+  },
+  supign: {
+    frontmatter: signup.attributes,
   },
 }
 
