@@ -1,3 +1,6 @@
+process.env.API_URL = '/register'
+process.env.GATSBY_API_URL = '/register'
+
 module.exports = {
   transform: {
     '^.+\\.[jt]sx?$': '<rootDir>/jest-preprocess.js',
