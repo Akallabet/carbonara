@@ -8,13 +8,17 @@ import {renderWithProviders} from '../test-utils/render-with-providers'
 // import {fireEvent, within} from '@testing-library/react'
 // import userEvent from '@testing-library/user-event'
 
-test.skip('should show a sinup page with title and list of images', () => {
-  const {
-    getAllByAltText,
-    getByText,
-    getByRole,
-    getByTestId,
-  } = renderWithProviders(<SignupPage />)
+test('should show a sinup page with title and list of images', () => {
+  const {getByText} = renderWithProviders(<SignupPage />)
 
-  expect(getByText('Sign Up')).toBeDefined()
+  expect(getByText(signup.attributes.text)).toBeDefined()
+  expect(getByText('Step 1 of 2')).toBeDefined()
+})
+
+test('should show the first step of the registration process', () => {
+  const {getByText, getByPlaceholderText} = renderWithProviders(<SignupPage />)
+
+  const step1 = signup.attributes.steps[0]
+  expect(getByText(`${step1.step}. ${step1.title}`)).toBeDefined()
+  // expect(getByPlaceholderText(step1.rows[0][0].placeholder)).toBeDefined()
 })

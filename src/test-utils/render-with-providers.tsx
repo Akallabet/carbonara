@@ -76,7 +76,7 @@ const data = {
   home: {
     frontmatter: home.attributes,
   },
-  supign: {
+  signup: {
     frontmatter: signup.attributes,
   },
 }

@@ -3,15 +3,15 @@ import {graphql} from 'gatsby'
 import {Grid} from '@material-ui/core'
 
 import {MobileReviewSection} from '../home'
-import {Steps} from '../signup'
+import {AccountCreation} from '../signup'
 
 const SignupPage: FunctionComponent = () => {
   return (
     <Grid container>
-      <Grid item xs={12} sm={6}>
-        <Steps />
+      <Grid item sm={12} md={6}>
+        <AccountCreation />
       </Grid>
-      <Grid item xs={false} sm={6}>
+      <Grid item sm={false} md={6}>
         <MobileReviewSection />
       </Grid>
     </Grid>
