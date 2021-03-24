@@ -1,5 +1,17 @@
 import {SelectProps, TextFieldProps, CheckboxProps} from '@material-ui/core'
 
+export interface SuccessProps {
+  content: {
+    signup: {
+      successPage: {
+        title: string
+        firstParagraph: string
+        secondParagraph: string
+      }
+    }
+  }
+}
+
 export interface AddedInputFieldProps {
   register: () => void
   error?: boolean

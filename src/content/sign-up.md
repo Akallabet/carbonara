@@ -2,6 +2,14 @@
 path: '/signup'
 title: 'signup'
 text: 'Sign Up'
+successPage:
+  title: 'Done'
+  firstParagraph:
+    'Downlaod the Carbonara App on your phone or tablet now! Its easy just click
+    open the welcome email thats been sent to your email on any device and click
+    download. It will take you to the app store.'
+  secondParagraph:
+    'If you are already on a device , click download to get started now!'
 steps:
   [
     {

@@ -56,9 +56,12 @@ test('should show the validation errors for the first step', async () => {
 })
 
 test('should submit the data and show the success screen', async () => {
-  const {findByText, getByRole, getByPlaceholderText} = renderWithProviders(
-    <SignupPage />,
-  )
+  const {
+    getByText,
+    findByText,
+    getByRole,
+    getByPlaceholderText,
+  } = renderWithProviders(<SignupPage />)
 
   const step1 = signup.attributes.steps[0]
   const step2 = signup.attributes.steps[1]
@@ -95,5 +98,7 @@ test('should submit the data and show the success screen', async () => {
   })
 
   fireEvent.click(getByRole('button', {name: step2.button}))
-  expect(await findByText(`Done`)).toBeDefined()
+  expect(await findByText(signup.attributes.successPage.title)).toBeDefined()
+  expect(getByText(signup.attributes.successPage.firstParagraph)).toBeDefined()
+  expect(getByText(signup.attributes.successPage.secondParagraph)).toBeDefined()
 })

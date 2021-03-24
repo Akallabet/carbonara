@@ -85,6 +85,11 @@ export const query = graphql`
     signup: markdownRemark(frontmatter: {title: {eq: "signup"}}) {
       frontmatter {
         text
+        successPage {
+          title
+          firstParagraph
+          secondParagraph
+        }
         steps {
           step
           title
