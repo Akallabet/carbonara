@@ -12,17 +12,22 @@ steps:
         [
           [
             {
-              type: 'name',
+              type: 'text',
               label: 'First Name',
               placeholder: 'First Name',
+              validation: 'alpha',
+              required: true,
+              messages: {error: 'Please enter only letters'},
               width: 12,
             },
           ],
           [
             {
-              type: 'name',
+              type: 'text',
               label: 'Last Name',
               placeholder: 'Last Name',
+              validation: 'alpha',
+              required: true,
               messages: {error: 'Please enter only letters'},
               width: 12,
             },
@@ -33,11 +38,13 @@ steps:
               label: 'Phone Number',
               placeholder: '9223 7774',
               prefix: '+44 GB',
+              validation: 'number',
+              required: true,
               messages:
                 {
                   info:
-                    'Phone Number Use your real mobile number,  We will text you
-                    a link to download the app.',
+                    'Use your real mobile number, We will text you a link to
+                    download the app.',
                   error: 'Please enter only numbers',
                 },
               width: 12,
@@ -45,11 +52,11 @@ steps:
           ],
           [
             {
-              type: 'dropdown',
+              type: 'select',
               label: 'Role',
-              placeholder: 'Role',
               options: ['Manager', 'Waiter'],
-              width: 12,
+              messages: {error: 'Please select one option'},
+              width: 6,
             },
           ],
         ],

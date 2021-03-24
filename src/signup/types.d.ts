@@ -1,3 +1,16 @@
+import {GridSize} from '@material-ui/core'
+import {
+  CustomPhoneFieldProps,
+  CustomSelectFieldProps,
+  CustomTextFieldProps,
+} from './form/types'
+
+export interface FormRowProps {
+  type: string
+  width: GridSize
+  validation?: string
+}
+
 export interface AccountCreationProps {
   content: {
     signup: {
@@ -7,11 +20,14 @@ export interface AccountCreationProps {
         title: string
         button: string
         rows: Array<
-          Array<{
-            type: string
-            label: string
-            width: number
-          }>
+          Array<
+            FormRowProps &
+              (
+                | CustomTextFieldProps
+                | CustomPhoneFieldProps
+                | CustomSelectFieldProps
+              )
+          >
         >
       }>
     }

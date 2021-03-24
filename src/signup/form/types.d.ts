@@ -1,0 +1,30 @@
+import {SelectProps, TextFieldProps} from '@material-ui/core'
+
+export interface AddedInputFieldProps {
+  register: () => void
+  error?: boolean
+  label?: string
+  required: boolean
+  messages: {
+    info?: string
+    error: string
+  }
+}
+
+export interface AddedPhoneFieldProps {
+  prefix: string
+}
+
+export interface AddedSelectFieldProps {
+  prefix: string
+  onChange: () => void
+  options: Array<string>
+}
+
+export type CustomTextFieldProps = TextFieldProps & AddedInputFieldProps
+export type CustomPhoneFieldProps = TextFieldProps &
+  AddedInputFieldProps &
+  AddedPhoneFieldProps
+export type CustomSelectFieldProps = SelectProps &
+  AddedInputFieldProps &
+  AddedSelectFieldProps

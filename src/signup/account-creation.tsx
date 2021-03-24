@@ -1,6 +1,7 @@
-import {Box, Typography} from '@material-ui/core'
+import {Box, Grid, Typography} from '@material-ui/core'
 import {useState} from 'react'
 import {withContent} from '../common/providers/content-provider'
+import {PhoneField, SelectField, TextField} from './form'
 import {AccountCreationProps} from './types'
 
 const AccountCreation = ({
@@ -29,6 +30,21 @@ const AccountCreation = ({
             variant="h5"
             color="textSecondary"
           >{`${currentStep.step}. ${currentStep.title}`}</Typography>
+        </Box>
+        <Box component="form">
+          {currentStep.rows.map((items, i) => (
+            <Box mb={6} key={i}>
+              <Grid container>
+                {items.map(({type, width, ...props}, j) => (
+                  <Grid item xs={12} sm={width} key={j}>
+                    {type === 'text' ? <TextField {...props} /> : ''}
+                    {type === 'phone' ? <PhoneField {...props} /> : ''}
+                    {type === 'select' ? <SelectField {...props} /> : ''}
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          ))}
         </Box>
       </Box>
     </Box>
