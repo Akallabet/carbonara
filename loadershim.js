@@ -3,3 +3,5 @@
 global.___loader = {
   enqueue: jest.fn(),
 }
+
+import 'whatwg-fetch'
