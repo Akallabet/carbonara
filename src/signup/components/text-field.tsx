@@ -9,7 +9,7 @@ const TextField = ({
   messages,
   ...props
 }: CustomTextFieldProps): JSX.Element => {
-  const helperText = error ? messages.error : messages.info
+  const helperText = error ? messages.error[error.type] : messages.info
   const extraProps: {label?: string} = {}
   if (label) extraProps.label = `${required ? '* ' : ''}${label}`
 

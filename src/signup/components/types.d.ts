@@ -7,7 +7,10 @@ export interface AddedInputFieldProps {
   required: boolean
   messages: {
     info?: string
-    error: string
+    error?: {
+      required: string
+      validation: string
+    }
   }
 }
 

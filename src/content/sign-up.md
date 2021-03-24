@@ -16,9 +16,16 @@ steps:
               name: 'firstName',
               label: 'First Name',
               placeholder: 'First Name',
-              validation: 'alpha',
+              validation: 'string',
               required: true,
-              messages: {error: 'Please enter only letters'},
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter your first name',
+                      validation: 'Please enter only letters',
+                    },
+                },
               width: 12,
             },
           ],
@@ -28,9 +35,16 @@ steps:
               name: 'lastName',
               label: 'Last Name',
               placeholder: 'Last Name',
-              validation: 'alpha',
+              validation: 'string',
               required: true,
-              messages: {error: 'Please enter only letters'},
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter your last name',
+                      validation: 'Please enter only letters',
+                    },
+                },
               width: 12,
             },
           ],
@@ -48,7 +62,11 @@ steps:
                   info:
                     'Use your real mobile number, We will text you a link to
                     download the app.',
-                  error: 'Please enter only numbers',
+                  error:
+                    {
+                      required: 'Please enter your phone number',
+                      validation: 'Please enter only numbers',
+                    },
                 },
               width: 12,
             },
@@ -59,7 +77,8 @@ steps:
               name: 'role',
               label: 'Role',
               options: ['Manager', 'Waiter'],
-              messages: {error: 'Please select one option'},
+              required: true,
+              messages: {error: {required: 'please select an option'}},
               width: 6,
             },
           ],
@@ -78,7 +97,15 @@ steps:
               label: 'Restaurant Name',
               placeholder: 'Restaurant Name',
               required: true,
-              messages: {error: 'Please enter the restaurant name'},
+              validation: 'string',
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter the restaurant name',
+                      validation: 'Please enter only alphanumeric characters',
+                    },
+                },
               width: 12,
             },
           ],
@@ -89,7 +116,8 @@ steps:
               label: 'Address',
               placeholder: 'Address',
               required: true,
-              messages: {error: 'Please enter the address'},
+              validation: 'string',
+              messages: {error: {required: 'Please enter the address'}},
               width: 8,
             },
             {
@@ -98,7 +126,15 @@ steps:
               label: 'Post Code',
               placeholder: 'Post Code',
               required: true,
-              messages: {error: 'Please enter the post code'},
+              validation: 'string',
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter the post code',
+                      validation: 'Please use only alphanumeric characters',
+                    },
+                },
               width: 4,
             },
           ],
@@ -109,7 +145,15 @@ steps:
               label: 'City',
               placeholder: 'City',
               required: true,
-              messages: {error: 'Please enter the city'},
+              validation: 'string',
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter the city',
+                      validation: 'Please use only alphanumeric characters',
+                    },
+                },
               width: 6,
             },
             {
@@ -139,12 +183,17 @@ steps:
               placeholder: '9223 7775',
               prefix: '+44 GB',
               required: true,
+              validation: 'string',
               messages:
                 {
                   info:
                     'Phone Number Use your real mobile number,  We will text you
                     a link to download the app.',
-                  error: 'Please enter only numbers',
+                  error:
+                    {
+                      required: 'Please enter the restaurant phone number',
+                      validation: 'Please enter only numbers',
+                    },
                 },
               width: 12,
             },
@@ -156,7 +205,15 @@ steps:
               label: 'Restaurant Website',
               placeholder: 'www.FLG.co.uk',
               required: true,
-              messages: {error: 'Please enter the website url'},
+              validation: 'string',
+              messages:
+                {
+                  error:
+                    {
+                      required: 'Please enter the website url',
+                      validation: 'Please use only alphanumeric characters',
+                    },
+                },
               width: 12,
             },
           ],
@@ -168,7 +225,9 @@ steps:
                 'I have read and agreed to the Terms of Use and agreed to
                 Privacy Policy.',
               required: true,
-              messages: {error: 'Please check out terms and consitions'},
+              validation: 'boolean',
+              messages:
+                {error: {required: 'Please check out terms and consitions'}},
             },
           ],
         ],

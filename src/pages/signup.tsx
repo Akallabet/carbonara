@@ -95,9 +95,13 @@ export const query = graphql`
             label
             placeholder
             required
+            validation
             width
             messages {
-              error
+              error {
+                required
+                validation
+              }
               info
             }
             prefix
