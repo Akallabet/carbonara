@@ -1,6 +1,2 @@
-export {default as TextField} from './text-field'
-export {default as PhoneField} from './phone-field'
-export {default as SelectField} from './select'
 export {default as Form} from './form'
-export {default as Checkbox} from './checkbox'
 export {default as Success} from './success'

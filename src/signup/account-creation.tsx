@@ -27,10 +27,15 @@ const AccountCreation = ({
     }
   }
   return (
-    <Box px={11}>
+    <Box px={5} py={5}>
       {(submissionState.success && <Success />) || (
         <>
-          <Box display="flex" justifyContent="space-between">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="flex-end"
+            mb={3}
+          >
             <Typography variant="h3" color="textSecondary">
               {text}
             </Typography>
@@ -40,7 +45,7 @@ const AccountCreation = ({
             >{`Step ${steps[currentStepIndex].step} of ${steps.length}`}</Typography>
           </Box>
           <Box>
-            <Box key={steps[currentStepIndex].step}>
+            <Box mb={5}>
               <Typography
                 variant="h5"
                 color="textSecondary"

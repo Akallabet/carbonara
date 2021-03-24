@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {StaticImage} from 'gatsby-plugin-image'
+import {Link as GatsbyLink} from 'gatsby'
 
 import {
   Box,
@@ -9,6 +10,7 @@ import {
   List,
   ListItemText,
 } from '@material-ui/core'
+import Link from '@material-ui/core/Link'
 import MenuIcon from '@material-ui/icons/Menu'
 
 import {HeaderContent} from './types'
@@ -36,11 +38,13 @@ const MobileHeader = ({
   return (
     <div data-testid="mobile">
       <Box display="flex" p={1} justifyContent="space-between">
-        <StaticImage
-          src="../../../assets/images/logo_mobile.png"
-          alt={altText}
-          layout="fixed"
-        />
+        <GatsbyLink to="/">
+          <StaticImage
+            src="../../../assets/images/logo_mobile.png"
+            alt={altText}
+            layout="fixed"
+          />
+        </GatsbyLink>
         <IconButton onClick={openMenu} aria-label="menu">
           <MenuIcon />
         </IconButton>
@@ -50,7 +54,9 @@ const MobileHeader = ({
           <List data-testid="menu">
             {links.map(({label, url}) => (
               <ListItemText key={label}>
-                <a href={url}>{label}</a>
+                <Link component={GatsbyLink} to={url}>
+                  {label}
+                </Link>
               </ListItemText>
             ))}
             <ListItemText>

@@ -1,7 +1,8 @@
 import {FunctionComponent} from 'react'
-import {Link} from 'gatsby'
+import {Link as GatsbyLink} from 'gatsby'
 import {StaticImage} from 'gatsby-plugin-image'
 import {Box, Button, Grid, useMediaQuery, useTheme} from '@material-ui/core'
+import Link from '@material-ui/core/Link'
 import {HeaderContent} from './types'
 
 const DesktopHeader: FunctionComponent<HeaderContent> = ({
@@ -23,9 +24,9 @@ const DesktopHeader: FunctionComponent<HeaderContent> = ({
       justifyContent="space-between"
     >
       <Box flexGrow={0} flexShrink={0}>
-        <Link to="/">
+        <GatsbyLink to="/">
           <StaticImage src="../../../assets/images/logo.png" alt={altText} />
-        </Link>
+        </GatsbyLink>
       </Box>
       <Grid
         container
@@ -36,7 +37,9 @@ const DesktopHeader: FunctionComponent<HeaderContent> = ({
       >
         {links.map(({label, url}) => (
           <Grid item key={label}>
-            <a href={url}>{label}</a>
+            <Link component={GatsbyLink} to={url}>
+              {label}
+            </Link>
           </Grid>
         ))}
         <Grid item>
@@ -49,7 +52,7 @@ const DesktopHeader: FunctionComponent<HeaderContent> = ({
           </Button>
         </Grid>
         <Grid item>
-          <Link to="/signup">
+          <Link component={GatsbyLink} to="/signup">
             <Button
               color="primary"
               variant="contained"

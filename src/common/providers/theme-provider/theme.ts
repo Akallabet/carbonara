@@ -20,6 +20,20 @@ const theme = createMuiTheme({
         color: '#232d36',
       },
     },
+    MuiLink: {
+      root: {
+        color: '#24232D',
+      },
+    },
+    MuiButton: {
+      containedPrimary: {
+        color: '#FFFFFF',
+      },
+      outlinedPrimary: {
+        borderColor: '#FFFFFF',
+        color: '#FFFFFF',
+      },
+    },
   },
 })
 

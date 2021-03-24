@@ -33,7 +33,7 @@ const Form = ({rows, button, onSubmit}: FormProps): JSX.Element => {
   return (
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
       {rows.map((items, i) => (
-        <Box mb={6} key={i}>
+        <Box mb={3} key={i}>
           <Grid container spacing={5}>
             {items.map(({type, width, name, ...props}, j) => (
               <Grid item xs={12} sm={width} key={j}>

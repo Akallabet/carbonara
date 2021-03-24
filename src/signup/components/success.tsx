@@ -9,19 +9,25 @@ const Success = ({
     },
   },
 }: SuccessProps): JSX.Element => (
-  <Box>
-    <Box>
+  <Box
+    display="flex"
+    flexDirection="column"
+    justifyContent="center"
+    height="100%"
+    maxWidth={600}
+  >
+    <Box mb={5}>
       <Typography variant="h3" color="textSecondary">
         {title}
       </Typography>
     </Box>
-    <Box>
-      <Typography variant="body1" color="textSecondary">
+    <Box mb={5}>
+      <Typography variant="h5" color="textSecondary">
         {firstParagraph}
       </Typography>
     </Box>
-    <Box>
-      <Typography variant="body1" color="textSecondary">
+    <Box mb={5}>
+      <Typography variant="h5" color="textSecondary">
         {secondParagraph}
       </Typography>
     </Box>
