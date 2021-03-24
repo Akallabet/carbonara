@@ -65,14 +65,11 @@ const MobileHeader = ({
               </Button>
             </ListItemText>
             <ListItemText>
-              <Button
-                color="primary"
-                variant="contained"
-                href="/signup"
-                fullWidth
-              >
-                {signUp}
-              </Button>
+              <Link component={GatsbyLink} to="/signup">
+                <Button color="primary" variant="contained" fullWidth>
+                  {signUp}
+                </Button>
+              </Link>
             </ListItemText>
           </List>
         </Box>

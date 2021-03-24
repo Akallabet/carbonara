@@ -23,6 +23,7 @@ const theme = createMuiTheme({
     MuiLink: {
       root: {
         color: '#24232D',
+        textDecoration: 'none',
       },
     },
     MuiButton: {
@@ -32,6 +33,11 @@ const theme = createMuiTheme({
       outlinedPrimary: {
         borderColor: '#FFFFFF',
         color: '#FFFFFF',
+      },
+    },
+    MuiFormControlLabel: {
+      label: {
+        color: '#24232D',
       },
     },
   },

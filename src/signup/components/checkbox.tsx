@@ -13,11 +13,10 @@ const Checkbox = ({
   name,
   checked: defaultChecked = false,
   label,
-  required,
   ...props
 }: CustomCheckboxFieldProps): JSX.Element => {
   const [checked, setChecked] = useState(defaultChecked)
-  const helperText = error && messages.error
+  const helperText = error ? messages.error[error.type] : messages.info
 
   const toggleStatus = () => {
     onChange(name, !checked)
