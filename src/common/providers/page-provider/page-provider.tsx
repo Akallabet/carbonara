@@ -1,6 +1,6 @@
 import {WrapPageElementBrowserArgs} from 'gatsby'
 import ContentProvider from '../content-provider'
-import {Header, Footer} from '../../layout'
+import {Header, Footer} from '../../components'
 import ErrorBoundary from './error-boundary'
 import {CountriesProvider} from '../../../countries'
 

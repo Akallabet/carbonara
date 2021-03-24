@@ -1,6 +1,9 @@
+const prefix = process.env.GATSBY_PREFIX
+const url = (prefix ? `/${prefix}` : '') + '/register'
+
 const register = async data => {
   try {
-    const result = await fetch(`/register`, {
+    const result = await fetch(url, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json',

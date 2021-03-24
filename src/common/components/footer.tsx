@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react'
-import {withContent} from '../../providers/content-provider'
+import {withContent} from '../providers/content-provider'
 import {FooterProps} from './types'
 import {Box, Button, Grid, Typography} from '@material-ui/core'
 
@@ -8,7 +8,7 @@ import instagram from './icons/instagram'
 import linkedin from './icons/linkedin'
 import youtube from './icons/youtube'
 import twitter from './icons/twitter'
-import {useBreakpoints} from '../../hooks'
+import {useBreakpoints} from '../hooks'
 import {Link} from 'gatsby'
 
 const socialIcons = {

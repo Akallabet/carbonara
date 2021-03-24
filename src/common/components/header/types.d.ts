@@ -24,3 +24,19 @@ export interface CountriesSelectProps extends WithCountriesProps {
   selected: string
   list: Array<{code: string; name: string; cities: Array<string>}>
 }
+
+export interface FooterProps {
+  content: {
+    footer: {
+      copyRight: string
+      main: string
+      socialMedia: Array<{type: string}>
+      buttons: {
+        signUp: {
+          label: string
+          href: string
+        }
+      }
+    }
+  }
+}

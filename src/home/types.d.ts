@@ -1,5 +1,5 @@
 import {IGatsbyImageData} from 'gatsby-plugin-image'
-import {CountriesSelectProps} from '../common/layout/header/types'
+import {CountriesSelectProps} from '../common/components/header/types'
 import {WithCountriesProps} from '../countries/types'
 
 export interface ImageProps {
