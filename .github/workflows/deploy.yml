@@ -30,8 +30,6 @@ jobs:
 
       - name: Build production
         run: npm run build -- --prefix-paths
-        env:
-          GATSBY_PREFIX: carbonara
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
