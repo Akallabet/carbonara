@@ -3,33 +3,36 @@ import {
   CustomPhoneFieldProps,
   CustomSelectFieldProps,
   CustomTextFieldProps,
-} from './form/types'
+} from './components/types'
 
-export interface FormRowProps {
+export interface FieldProps {
+  props: CustomTextFieldProps | CustomPhoneFieldProps | CustomSelectFieldProps
+}
+
+export interface FormElementProps {
   type: string
+  name: string
   width: GridSize
   validation?: string
+}
+
+export interface FormProps {
+  button: string
+  rows: Array<Array<FormElementProps & FieldProps>>
+  button: string
+  onSubmit: (values: any) => void
+}
+
+export interface StepsFormProps {
+  step: number
+  title: string
 }
 
 export interface AccountCreationProps {
   content: {
     signup: {
       text: string
-      steps: Array<{
-        step: number
-        title: string
-        button: string
-        rows: Array<
-          Array<
-            FormRowProps &
-              (
-                | CustomTextFieldProps
-                | CustomPhoneFieldProps
-                | CustomSelectFieldProps
-              )
-          >
-        >
-      }>
+      steps: Array<StepsFormProps & FormProps>
     }
   }
 }

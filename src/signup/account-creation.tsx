@@ -1,7 +1,7 @@
-import {Box, Grid, Typography} from '@material-ui/core'
+import {Box, Typography} from '@material-ui/core'
 import {useState} from 'react'
 import {withContent} from '../common/providers/content-provider'
-import {PhoneField, SelectField, TextField} from './form'
+import {Form} from './components'
 import {AccountCreationProps} from './types'
 
 const AccountCreation = ({
@@ -9,10 +9,17 @@ const AccountCreation = ({
     signup: {text, steps},
   },
 }: AccountCreationProps): JSX.Element => {
-  const [currentStep, setCurrentStep] = useState(steps[0])
-  // const next = () => {}
-  // const complete = () => {}
+  const [currentStepIndex, setCurrentStepIndex] = useState(0)
+  const handleSubmit = values => {
+    console.log(values)
+    if (currentStepIndex === steps.length - 1) {
+      console.log(values)
+    } else {
+      setCurrentStepIndex(currentStepIndex + 1)
+    }
+  }
 
+  const currentStep = steps[currentStepIndex]
   return (
     <Box px={11}>
       <Box display="flex" justifyContent="space-between">
@@ -31,21 +38,14 @@ const AccountCreation = ({
             color="textSecondary"
           >{`${currentStep.step}. ${currentStep.title}`}</Typography>
         </Box>
-        <Box component="form">
-          {currentStep.rows.map((items, i) => (
-            <Box mb={6} key={i}>
-              <Grid container>
-                {items.map(({type, width, ...props}, j) => (
-                  <Grid item xs={12} sm={width} key={j}>
-                    {type === 'text' ? <TextField {...props} /> : ''}
-                    {type === 'phone' ? <PhoneField {...props} /> : ''}
-                    {type === 'select' ? <SelectField {...props} /> : ''}
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          ))}
-        </Box>
+        {steps.map(({step, ...props}) => (
+          <Box
+            key={step}
+            display={step === currentStepIndex + 1 ? 'block' : 'none'}
+          >
+            <Form {...props} onSubmit={handleSubmit} />
+          </Box>
+        ))}
       </Box>
     </Box>
   )

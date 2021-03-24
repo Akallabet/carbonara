@@ -17,7 +17,6 @@ const Select = ({
   onChange = () => null,
   ...props
 }: CustomSelectFieldProps): JSX.Element => {
-  const helperText = error ? messages.error : messages.info
   const handleChange = ({
     target: {value},
   }: ChangeEvent<{name?: string | undefined; value: unknown}>) => {
@@ -48,7 +47,6 @@ const Select = ({
         margin="none"
         fullWidth
         inputRef={register}
-        helperText={helperText}
         {...props}
       >
         {options.map(option => (

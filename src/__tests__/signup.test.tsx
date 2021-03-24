@@ -16,9 +16,12 @@ test('should show a sinup page with title and list of images', () => {
 })
 
 test('should show the first step of the registration process', () => {
-  const {getByText, getByPlaceholderText, getByLabelText} = renderWithProviders(
-    <SignupPage />,
-  )
+  const {
+    getByText,
+    getByPlaceholderText,
+    getByLabelText,
+    getByRole,
+  } = renderWithProviders(<SignupPage />)
 
   const step1 = signup.attributes.steps[0]
   expect(getByText(`${step1.step}. ${step1.title}`)).toBeDefined()
@@ -27,4 +30,6 @@ test('should show the first step of the registration process', () => {
   expect(getByPlaceholderText(step1.rows[2][0].placeholder)).toBeDefined()
   expect(getByText(step1.rows[2][0].messages.info)).toBeDefined()
   expect(getByLabelText(step1.rows[3][0].label)).toBeDefined()
+
+  expect(getByRole('button', {name: step1.button})).toBeDefined()
 })

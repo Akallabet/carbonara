@@ -13,6 +13,7 @@ steps:
           [
             {
               type: 'text',
+              name: 'firstName',
               label: 'First Name',
               placeholder: 'First Name',
               validation: 'alpha',
@@ -24,6 +25,7 @@ steps:
           [
             {
               type: 'text',
+              name: 'lastName',
               label: 'Last Name',
               placeholder: 'Last Name',
               validation: 'alpha',
@@ -35,6 +37,7 @@ steps:
           [
             {
               type: 'phone',
+              name: 'phoneNumber',
               label: 'Phone Number',
               placeholder: '9223 7774',
               prefix: '+44 GB',
@@ -53,6 +56,7 @@ steps:
           [
             {
               type: 'select',
+              name: 'role',
               label: 'Role',
               options: ['Manager', 'Waiter'],
               messages: {error: 'Please select one option'},
@@ -70,24 +74,47 @@ steps:
           [
             {
               type: 'text',
+              name: 'restaurantName',
               label: 'Restaurant Name',
-              placeholder: 'First Name',
+              placeholder: 'Restaurant Name',
+              required: true,
+              messages: {error: 'Please enter the restaurant name'},
               width: 12,
             },
           ],
           [
-            {type: 'text', label: 'Address', placeholder: 'Address', width: 8},
             {
               type: 'text',
+              name: 'address',
+              label: 'Address',
+              placeholder: 'Address',
+              required: true,
+              messages: {error: 'Please enter the address'},
+              width: 8,
+            },
+            {
+              type: 'text',
+              name: 'postCode',
               label: 'Post Code',
               placeholder: 'Post Code',
+              required: true,
+              messages: {error: 'Please enter the post code'},
               width: 8,
             },
           ],
           [
-            {type: 'text', label: 'City', placeholder: 'City', width: 6},
             {
-              type: 'dropdown',
+              type: 'text',
+              name: 'city',
+              label: 'City',
+              placeholder: 'City',
+              required: true,
+              messages: {error: 'Please enter the city'},
+              width: 6,
+            },
+            {
+              type: 'select',
+              name: 'country',
               label: 'Country',
               placeholder: 'Country',
               options: ['United Kingdom', 'Italy', 'United States'],
@@ -96,7 +123,8 @@ steps:
           ],
           [
             {
-              type: 'dropdown',
+              type: 'select',
+              name: 'timeZone',
               label: 'Time Zone',
               placeholder: 'Time Zone',
               options: ['GMT +001', 'GMT +002', 'GMT +003', 'GMT +004'],
@@ -106,9 +134,11 @@ steps:
           [
             {
               type: 'phone',
+              name: 'restaurantPhone',
               label: 'Restaurant phone number',
-              placeholder: '9223 7774',
+              placeholder: '9223 7775',
               prefix: '+44 GB',
+              required: true,
               messages:
                 {
                   info:
@@ -122,23 +152,18 @@ steps:
           [
             {
               type: 'url',
+              name: 'website',
               label: 'Restaurant Website',
               placeholder: 'www.FLG.co.uk',
-              width: 12,
-            },
-          ],
-          [
-            {
-              type: 'url',
-              label: 'Restaurant Website',
-              placeholder: 'www.FLG.co.uk',
-              messages: {error: 'Please enter a website'},
+              required: true,
+              messages: {error: 'Please enter the website url'},
               width: 12,
             },
           ],
           [
             {
               type: 'checkbox',
+              name: 'privacy',
               label:
                 'I have read and agreed to the Terms of Use and agreed to
                 Privacy Policy.',

@@ -91,6 +91,7 @@ export const query = graphql`
           button
           rows {
             type
+            name
             label
             placeholder
             required
