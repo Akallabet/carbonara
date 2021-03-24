@@ -18,6 +18,9 @@ const TextField = ({
       variant="outlined"
       size="small"
       margin="none"
+      InputLabelProps={{
+        shrink: true,
+      }}
       {...props}
       {...extraProps}
       fullWidth

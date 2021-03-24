@@ -5,6 +5,7 @@ import SelectField from './select'
 import {FormProps} from '../types'
 
 import {useForm} from 'react-hook-form'
+import Checkbox from './checkbox'
 
 const Form = ({rows, button, onSubmit}: FormProps): JSX.Element => {
   const {register, handleSubmit, setValue} = useForm()
@@ -12,28 +13,29 @@ const Form = ({rows, button, onSubmit}: FormProps): JSX.Element => {
     <Box component="form" onSubmit={handleSubmit(onSubmit)}>
       {rows.map((items, i) => (
         <Box mb={6} key={i}>
-          <Grid container>
+          <Grid container spacing={5}>
             {items.map(({type, width, ...props}, j) => (
               <Grid item xs={12} sm={width} key={j}>
-                {type === 'text' ? (
+                {(type === 'text' && (
                   <TextField register={register} {...props} />
-                ) : (
-                  ''
-                )}
-                {type === 'phone' ? (
-                  <PhoneField register={register} {...props} />
-                ) : (
-                  ''
-                )}
-                {type === 'select' ? (
-                  <SelectField
-                    onChange={setValue}
-                    register={register}
-                    {...props}
-                  />
-                ) : (
-                  ''
-                )}
+                )) ||
+                  (type === 'phone' && (
+                    <PhoneField register={register} {...props} />
+                  )) ||
+                  (type === 'select' && (
+                    <SelectField
+                      onChange={setValue}
+                      register={register}
+                      {...props}
+                    />
+                  )) ||
+                  (type === 'checkbox' && (
+                    <Checkbox
+                      onChange={setValue}
+                      register={register}
+                      {...props}
+                    />
+                  ))}
               </Grid>
             ))}
           </Grid>

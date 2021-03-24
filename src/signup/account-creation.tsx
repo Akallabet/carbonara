@@ -11,15 +11,10 @@ const AccountCreation = ({
 }: AccountCreationProps): JSX.Element => {
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
   const handleSubmit = values => {
-    console.log(values)
-    if (currentStepIndex === steps.length - 1) {
-      console.log(values)
-    } else {
+    if (currentStepIndex < steps.length - 1) {
       setCurrentStepIndex(currentStepIndex + 1)
     }
   }
-
-  const currentStep = steps[currentStepIndex]
   return (
     <Box px={11}>
       <Box display="flex" justifyContent="space-between">
@@ -29,14 +24,14 @@ const AccountCreation = ({
         <Typography
           variant="h5"
           color="textSecondary"
-        >{`Step ${currentStep.step} of ${steps.length}`}</Typography>
+        >{`Step ${steps[currentStepIndex].step} of ${steps.length}`}</Typography>
       </Box>
       <Box>
-        <Box key={currentStep.step}>
+        <Box key={steps[currentStepIndex].step}>
           <Typography
             variant="h5"
             color="textSecondary"
-          >{`${currentStep.step}. ${currentStep.title}`}</Typography>
+          >{`${steps[currentStepIndex].step}. ${steps[currentStepIndex].title}`}</Typography>
         </Box>
         {steps.map(({step, ...props}) => (
           <Box

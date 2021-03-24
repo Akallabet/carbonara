@@ -1,4 +1,4 @@
-import {SelectProps, TextFieldProps} from '@material-ui/core'
+import {SelectProps, TextFieldProps, CheckboxProps} from '@material-ui/core'
 
 export interface AddedInputFieldProps {
   register: () => void
@@ -21,6 +21,10 @@ export interface AddedSelectFieldProps {
   options: Array<string>
 }
 
+export interface AddedCheckboxFieldProps {
+  checked?: boolean
+}
+
 export type CustomTextFieldProps = TextFieldProps & AddedInputFieldProps
 export type CustomPhoneFieldProps = TextFieldProps &
   AddedInputFieldProps &
@@ -28,3 +32,7 @@ export type CustomPhoneFieldProps = TextFieldProps &
 export type CustomSelectFieldProps = SelectProps &
   AddedInputFieldProps &
   AddedSelectFieldProps
+
+export type CustomCheckboxFieldProps = CheckboxProps &
+  AddedInputFieldProps &
+  AddedCheckboxFieldProps

@@ -99,7 +99,7 @@ steps:
               placeholder: 'Post Code',
               required: true,
               messages: {error: 'Please enter the post code'},
-              width: 8,
+              width: 4,
             },
           ],
           [
@@ -151,7 +151,7 @@ steps:
           ],
           [
             {
-              type: 'url',
+              type: 'text',
               name: 'website',
               label: 'Restaurant Website',
               placeholder: 'www.FLG.co.uk',
@@ -168,6 +168,7 @@ steps:
                 'I have read and agreed to the Terms of Use and agreed to
                 Privacy Policy.',
               required: true,
+              messages: {error: 'Please check out terms and consitions'},
             },
           ],
         ],
