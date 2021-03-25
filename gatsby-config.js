@@ -1,5 +1,4 @@
 module.exports = {
-  assetPrefix: `https://akallabet.github.io/carbonara`,
   pathPrefix: '/carbonara',
   siteMetadata: {
     title: 'Carbonara',
